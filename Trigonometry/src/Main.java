@@ -18,7 +18,7 @@ Inverse i = new Inverse();
         } */
 
 Inverse i2 = new Inverse();
-        System.out.println( i2.arcsec(1.2));
+        System.out.println( i2.arccosec(3244));
 
 
 

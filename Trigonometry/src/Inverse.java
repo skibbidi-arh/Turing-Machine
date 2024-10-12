@@ -114,6 +114,7 @@ public double arccos(double x ) throws TrigonoValueError {
         return 90- arctan(x);
     }
 
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public double arcsec(double x) throws TrigonoValueError {
         int terms = 50;
@@ -122,23 +123,23 @@ public double arccos(double x ) throws TrigonoValueError {
             throw new TrigonoValueError("arcsec(x) is undefined for |x| < 1");
         }
         if (x == 1) {
-            return 0.0;           // arcsec(1) = 0 degrees
+            return 0.0;
         } else if (x == Math.sqrt(2)) {
-            return 45;            // arcsec(√2) = 45 degrees = π/4 radians
+            return 45;
         } else if (x == 2) {
-            return 60;            // arcsec(2) = 60 degrees = π/3 radians
+            return 60;
         } else if (x == 3) {
-            return 70.528;        // arcsec(3) ≈ 70.528 degrees
+            return 70.528;
         } else if (x == Math.sqrt(2)/2) {
-            return 135;           // arcsec(√2/2) = 135 degrees
+            return 135;
         } else if (x == -Math.sqrt(2)) {
-            return 135;           // arcsec(-√2) = 135 degrees = 3π/4 radians
+            return 135;
         } else if (x == -2) {
-            return 120;           // arcsec(-2) = 120 degrees = 2π/3 radians
+            return 120;
         } else if (x == -3) {
-            return 109.472;       // arcsec(-3) ≈ 109.472 degrees
+            return 109.472;
         } else if (x == -1) {
-            return 180.0;         // arcsec(-1) = 180 degrees
+            return 180.0;
         }
 
         if (x == 1) {
@@ -159,6 +160,12 @@ public double arccos(double x ) throws TrigonoValueError {
         if(x>1) return 90-result;
 
         return result;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    double arccosec(double x ) throws TrigonoValueError {
+        return 90-arcsec(x);
     }
 
 
