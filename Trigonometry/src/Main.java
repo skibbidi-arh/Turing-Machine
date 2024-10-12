@@ -1,5 +1,4 @@
-import  java.util.*;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) throws TrigonoValueError {
 
@@ -19,7 +18,7 @@ Inverse i = new Inverse();
         } */
 
 Inverse i2 = new Inverse();
-        System.out.println( i2.arcsin(0.5));
+        System.out.println( i2.arcsec(1.2));
 
 
 
