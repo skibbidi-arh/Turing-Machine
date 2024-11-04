@@ -20,8 +20,15 @@ Inverse i = new Inverse();
 Inverse i2 = new Inverse();
         System.out.println( i2.arccosec(3244));
 
+        double[] coefficients = {1,0,-1,0};  // Coefficients for x^3 - 1
+
+        // Find the roots
+        Complex[] roots = DurandKerner.durandKerner(coefficients, 1e-6, 1000);
 
 
-
+        System.out.println("Roots found:");
+        for (Complex root : roots) {
+            System.out.println(root);
+        }
     }
-}
+    }
