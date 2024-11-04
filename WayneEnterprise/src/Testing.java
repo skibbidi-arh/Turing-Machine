@@ -30,7 +30,7 @@ public class Testing {
             i++;
         }
         if(validarray){
-            printarray();
+            result();
         }
     }
     public static int Pattern_Matcher(String eqn){
@@ -57,12 +57,16 @@ public class Testing {
                 j++;
             }
     }
-    public static void printarray(){
+    public static void result(){
+        int[][] coefficient_matrix = new int[n][n];
+        int[][] result_matrix = new int[n][1];
         for(int i=0;i<n;i++){
-            for(int j=0;j<n+1;j++){
-                System.out.print(arr[i][j]+" ");
+            for(int j=0;j<n;j++){
+                coefficient_matrix[i][j] = arr[i][j];
             }
-            System.out.println();
+        }
+        for(int i=0;i<n;i++){
+            result_matrix[i][0]=arr[i][n];
         }
     }
 }
