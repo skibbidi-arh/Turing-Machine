@@ -121,5 +121,28 @@ public class Functions {
             return mid;
         }
     }
+    public static double ceiling(double number) {
+        if(number>(int) number)
+        {
+            return (int)number+1;
+        }
+        else
+        {
+            return number;
+        }
+    }
+
+    public static double precisionController(double x)
+    {
+        double controller= ceiling(x)-x;
+        if(controller<0.000001)
+        {
+            return ceiling(x);
+        }
+        else
+        {
+            return x;
+        }
+    }
 
 }
