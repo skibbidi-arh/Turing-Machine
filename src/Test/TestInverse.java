@@ -65,9 +65,61 @@ public class TestInverse {
         assertEquals(expected3, actual3, 0.001, "arctan(0.5) should be approximately 26.565 degrees");
     }
 
+    @Test
+
+    void testArcSec() throws TrigonoValueError {
+        Inverse I = new Inverse();
 
 
+        Double expected1 = 60.0;  // Expected result for arcsec(2) in degrees
+        Double actual1 = I.arcsec(2.0);
+        assertEquals(expected1, actual1, "arcsec(2) should be 60.0 degrees");
+
+        Double expected2 = 90.0;  // Expected result for arcsec(1) in degrees
+        Double actual2 = I.arcsec(1.0);
+        assertEquals(expected2, actual2, "arcsec(1) should be 90.0 degrees");
+
+        Double expected3 = 120.0;  // Expected result for arcsec(-2) in degrees
+        Double actual3 = I.arcsec(-2.0);
+        assertEquals(expected3, actual3, "arcsec(-2) should be 120.0 degrees");
+    }
 
 
+    @Test
+    void testArcCosec() throws TrigonoValueError {
+        Inverse I = new Inverse();
+
+
+        Double expected1 = 30.0;  // Expected result for arccosec(2) in degrees
+        Double actual1 = I.arccosec(2.0);
+        assertEquals(expected1, actual1, "arccosec(2) should be 30.0 degrees");
+
+        Double expected2 = 90.0;  // Expected result for arccosec(1) in degrees
+        Double actual2 = I.arccosec(1.0);
+        assertEquals(expected2, actual2, "arccosec(1) should be 90.0 degrees");
+
+        Double expected3 = -30.0;  // Expected result for arccosec(-2) in degrees
+        Double actual3 = I.arccosec(-2.0);
+        assertEquals(expected3, actual3, "arccosec(-2) should be 150.0 degrees");
+    }
+
+
+    @Test
+    void testArcCot() throws TrigonoValueError {
+        Inverse I = new Inverse();
+
+
+        Double expected1 = 45.0;  // Expected result for arccot(1) in degrees
+        Double actual1 = I.arccot(1.0);
+        assertEquals(expected1, actual1, "arccot(1) should be 45.0 degrees");
+
+        Double expected2 = 90.0;  // Expected result for arccot(0) in degrees
+        Double actual2 = I.arccot(0.0);
+        assertEquals(expected2, actual2, "arccot(0) should be 90.0 degrees");
+
+        Double expected3 = 63.435;  // Expected result for arccot(0.5) in degrees
+        Double actual3 = I.arccot(0.5);
+        assertEquals(expected3, actual3, 0.001, "arccot(0.5) should be approximately 63.435 degrees");
+    }
 
 }
