@@ -7,18 +7,9 @@ public class Main {
         Inverse In = new Inverse();
 
         System.out.println(In.arcsec(2));
-//
-//        System.out.println("Choose Type of Equation You want to Solve: ");
-//        Scanner sc = new Scanner(System.in);
-//        int i= sc.nextInt();
-//        if(i==1)
-//        {
-//            LinearRegex lr= new LinearRegex();
-//        }
-//        else if(i==2)
-//        {
-//            PolynomialRegex pr= new PolynomialRegex();
-//        }
+
+        SolutionClass src = new SolutionClass();
+
 
     }
 }

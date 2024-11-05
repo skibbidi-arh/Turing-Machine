@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class LinearRegex {
     static int n;
     static int arr[][];
-    public static  void main(String[] args) {
+    public void take() {
         int i=0;
         Scanner string_input = new Scanner(System.in);
         Scanner number_input = new Scanner(System.in);
