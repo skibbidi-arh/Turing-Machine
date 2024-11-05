@@ -1,3 +1,4 @@
+package EquationClasses;
 public class Complex {
 
     double real;

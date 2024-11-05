@@ -1,3 +1,4 @@
+package EquationClasses;
 public class DurandKerner {
 
     public static Complex[] durandKerner(double[] coefficients, double tolerance, int maxIterations) {

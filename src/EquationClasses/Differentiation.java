@@ -1,3 +1,4 @@
+package EquationClasses;
 public class Differentiation {
     private double[] coefficients;
     private int[] powers;

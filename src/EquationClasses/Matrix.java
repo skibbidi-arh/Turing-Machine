@@ -1,3 +1,4 @@
+package EquationClasses;
 import java.util.Arrays;
 
 public class Matrix {

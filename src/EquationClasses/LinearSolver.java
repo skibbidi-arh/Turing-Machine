@@ -1,3 +1,4 @@
+package EquationClasses;
 public class LinearSolver {
     private double[][] linearCoefficients;
     private double[][] linearRHS;
