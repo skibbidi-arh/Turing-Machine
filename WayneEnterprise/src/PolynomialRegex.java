@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Polynomial {
+public class PolynomialRegex {
     public static void main(String[] args) {
         String pattern = "([+-]?\\s*([\\d-]*)\\s*[A-Za-z]\\s*[\\^]?\\s*([\\d]?)\\s*[+-]?)";
         Pattern r = Pattern.compile(pattern);
