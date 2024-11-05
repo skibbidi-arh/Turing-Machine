@@ -53,6 +53,7 @@ public class LinearRegex {
             int j=0;
             while (matcher.find()) {
                 int in = Integer.parseInt(matcher.group(1));
+
                 arr[i][j] = in;
                 j++;
             }
