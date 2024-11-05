@@ -1,7 +1,9 @@
 package src.EquationClasses;
+import java.util.*;
 public class DurandKerner {
+    Scanner sc = new Scanner(System.in);
 
-    public static Complex[] durandKerner(double[] coefficients, double tolerance, int maxIterations) {
+    public  Complex[] durandKerner(double[] coefficients, double tolerance, int maxIterations) {
         int n = coefficients.length - 1;
         Complex[] roots = new Complex[n];
 
@@ -66,12 +68,27 @@ public class DurandKerner {
         return result;
     }
 
-    public static void main(String[] args) {
+    public void solve() {
+        System.out.println("Enter the number of entries ");
+        int n = sc.nextInt();
+        if (n==1)
+        {
+            System.out.println("Only one constant entered");
+            return;
+        }
+        int z=n-1;
+        double[] coefficients = new double[n];
+        for (int k = 0; k < n-1; k++) {
+            System.out.println("Enter the coefficient of X^"+z);
+            z--;
+            double p = sc.nextDouble();
+            coefficients[k] = p;
+        }
+        System.out.println("Enter the constant");
+        coefficients[n-1] = sc.nextDouble();
 
-        double[] coefficients = {1, 0, 0, -1};
 
-
-        Complex[] roots = durandKerner(coefficients, 1e-6, 1000);
+        Complex[] roots = durandKerner(coefficients, 1e-6, 100000);
 
 
         System.out.println("Roots found:");

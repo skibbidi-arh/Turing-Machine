@@ -169,10 +169,18 @@ public class SolutionClass {
     }
 
 
-    void pol()
-    {
+    void pol() throws TrigonoValueError {
+        DurandKerner dk = new DurandKerner();
+        dk.solve();
+        System.out.println();
+        System.out.println("1- Solve another");
+        System.out.println("2- Go back");
+        int s = sc.nextInt();
+        if(s == 1)pol();
+        else if (s == 2) {
+            print();
 
-
+        }
 
     }
 
