@@ -1,4 +1,4 @@
-package EquationClasses;
+package src.EquationClasses;
 public class Differentiation {
     private double[] coefficients;
     private int[] powers;

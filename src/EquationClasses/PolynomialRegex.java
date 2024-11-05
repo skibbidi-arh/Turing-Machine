@@ -1,4 +1,4 @@
-package WayneEnterprise.src;
+package src.EquationClasses;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

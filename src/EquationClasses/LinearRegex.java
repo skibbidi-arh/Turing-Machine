@@ -1,4 +1,4 @@
-package WayneEnterprise.src;
+package src.EquationClasses;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -59,8 +59,8 @@ public class LinearRegex {
             }
     }
     public static void result(){
-        int[][] coefficient_matrix = new int[n][n];
-        int[][] result_matrix = new int[n][1];
+        double[][] coefficient_matrix = new double[n][n];
+        double[][] result_matrix = new double[n][1];
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 coefficient_matrix[i][j] = arr[i][j];
@@ -69,6 +69,11 @@ public class LinearRegex {
         for(int i=0;i<n;i++){
             result_matrix[i][0]=arr[i][n];
         }
+        Matrix coeff= new Matrix(coefficient_matrix);
+        Matrix resultant = new Matrix(result_matrix);
+        LinearSolver ls= new LinearSolver(coeff,resultant);
+        Matrix answer= new Matrix(ls.solve());
+        answer.printMatrix();
     }
 }
 

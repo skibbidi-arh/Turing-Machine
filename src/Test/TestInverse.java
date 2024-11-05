@@ -1,6 +1,6 @@
-package Test;
-import EquationClasses.Inverse;
-import EquationClasses.TrigonoValueError;
+package src.Test;
+import src.EquationClasses.Inverse;
+import src.EquationClasses.TrigonoValueError;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
