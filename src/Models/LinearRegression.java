@@ -46,13 +46,13 @@ public class LinearRegression {
         return intercept;
     }
 
-     void prediction (double predictX) {
+     public void prediction( double predictX) {
 
         LinearRegression model = new LinearRegression(this.x, this.y);
 
         System.out.println("Slope (m): " + model.getSlope());
         System.out.println("Intercept (b): " + model.getIntercept());
-        System.out.println("Predicted y for x = " + predictX + ": " + model.predict(predictX));
+        System.out.println(model.predict(predictX));
     }
 
 }

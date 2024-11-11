@@ -42,20 +42,21 @@ public class CSVReader {
                  String[] values = line.split(",");
                  x[n] = Double.parseDouble(values[0]);
                  y[n] = Double.parseDouble(values[1]);
+                n++;
 
 
              }
-             n++;
+
 
             }
 
         }
 
 
-    double[] getX() {
+    public double[] getX() {
         return x;
     }
-    double[] getY() {
+    public double[] getY() {
         return y;
     }
 
