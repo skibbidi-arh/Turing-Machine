@@ -1,3 +1,4 @@
+package src.EquationClasses;
 public class Trigonometry {
 
     double  PI =3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679;
@@ -48,7 +49,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    double sin(double x) {
+    public double sin(double x) {
 
         if(x>360){
 
@@ -105,7 +106,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    double cos(double x) {
+   public  double cos(double x) {
 
         if (x > 360) {
             double s = x / 360;
@@ -154,7 +155,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    double tan(double x) throws  TrigonoValueError{
+    public double tan(double x) throws  TrigonoValueError{
         if (x > 180) {
             double s = x / 180;
             x = x - 180 * (int) s;
@@ -186,7 +187,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    double cot(double x) throws  TrigonoValueError{
+    public double cot(double x) throws  TrigonoValueError{
     if (x == 0) {
         throw new TrigonoValueError("cot(0°) is undefined");    // cot(0°) is undefined
     } else if (x == 30) {
@@ -210,7 +211,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    double cosec(double x) throws  TrigonoValueError{
+    public double cosec(double x) throws  TrigonoValueError{
         if (x == 0) {
             throw new TrigonoValueError("cosec(0°) is undefined");    // cosec(0°) is undefined
         } else if (x == 30) {
@@ -234,7 +235,7 @@ public class Trigonometry {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    double sec(double x) throws  TrigonoValueError{
+    public double sec(double x) throws  TrigonoValueError{
         if (x == 0) {
             return 1.0;     // sec(0°) = 1
         } else if (x == 30) {

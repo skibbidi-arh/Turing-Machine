@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Inverse trigonmetry.iml" filepath="$PROJECT_DIR$/Inverse trigonmetry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Turing-Machine.iml" filepath="$PROJECT_DIR$/.idea/Turing-Machine.iml" />
     </modules>
   </component>
 </project>
