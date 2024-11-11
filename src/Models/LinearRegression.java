@@ -1,15 +1,21 @@
 package src.Models;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+import static java.util.Arrays.asList;
 
 public class LinearRegression {
-    private double[] x;
-    private double[] y;
-    CSVReader reader;
+    private List<Double> x;
+    private List<Double> y;
     private double slope;
     private double intercept;
 
-    public LinearRegression(double[] x, double[] y) {
+    public LinearRegression(List<Double> x, List<Double> y) {
+        if (x.size() != y.size()) {
+            throw new IllegalStateException("Must have equal X and Y data points");
+        }
         this.x = x;
         this.y = y;
         calculateCoefficients();
@@ -17,18 +23,14 @@ public class LinearRegression {
 
     // Method to calculate slope (m) and intercept (b)
     private void calculateCoefficients() {
-        int n = x.length;
+        int n = x.size();
 
-        double sumX = 0.0, sumY = 0.0, sumXY = 0.0, sumXX = 0.0;
+        double sumX = x.stream().mapToDouble(Double::doubleValue).sum();
+        double sumY = y.stream().mapToDouble(Double::doubleValue).sum();
+        double sumXY = IntStream.range(0, n).mapToDouble(i -> x.get(i) * y.get(i)).sum();
+        double sumXX = x.stream().mapToDouble(i -> Math.pow(i, 2)).sum();
 
-        for (int i = 0; i < n; i++) {
-            sumX += x[i];
-            sumY += y[i];
-            sumXY += x[i] * y[i];
-            sumXX += x[i] * x[i];
-        }
-
-        slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+        slope = (n * sumXY - sumX * sumY) / (n * sumXX - Math.pow(sumX, 2));
         intercept = (sumY - slope * sumX) / n;
     }
 
@@ -46,13 +48,12 @@ public class LinearRegression {
         return intercept;
     }
 
-     public void prediction( double predictX) {
-
-        LinearRegression model = new LinearRegression(this.x, this.y);
-
-        System.out.println("Slope (m): " + model.getSlope());
-        System.out.println("Intercept (b): " + model.getIntercept());
-        System.out.println(model.predict(predictX));
+    // Method to display slope, intercept, and prediction result
+    public void prediction(double predictX) {
+        System.out.println("Slope (m): " + getSlope());
+        System.out.println("Intercept (b): " + getIntercept());
+        System.out.println("Predicted value for x = " + predictX + ": " + predict(predictX));
     }
+
 
 }
