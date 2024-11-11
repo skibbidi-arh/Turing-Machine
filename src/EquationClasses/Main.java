@@ -1,14 +1,23 @@
 package src.EquationClasses;
+import src.Models.CSVReader;
+import src.Models.LinearRegression;
+import src.Models.ModelApply;
+
+import java.io.IOException;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) throws TrigonoValueError {
-        System.out.println(10);
+    public static void main(String[] args) throws TrigonoValueError, IOException {
 
-        Inverse In = new Inverse();
 
-        System.out.println(In.arcsec(2));
+       // SolutionClass src = new SolutionClass();
 
-        SolutionClass src = new SolutionClass();
+        ModelApply ml = new ModelApply();
+        ml.LinearRG("homeprices.csv",3300);
+
+        CSVReader cs = new CSVReader("homeprices.csv");
+        System.out.println(cs.x[0]);
+
+
 
 
     }

@@ -1,8 +1,11 @@
-package src.EquationClasses;
+package src.Models;
+
+
 
 public class LinearRegression {
     private double[] x;
     private double[] y;
+    CSVReader reader;
     private double slope;
     private double intercept;
 
@@ -43,18 +46,12 @@ public class LinearRegression {
         return intercept;
     }
 
-    public static void main(String[] args) {
-        // Sample data
-        double[] x = {2, 3, 5, 7, 9, 11, 14};
-        double[] y = {4, 5, 7, 10, 15, 20, 40};
+     void prediction (double predictX) {
 
-        LinearRegression model = new LinearRegression(x, y);
+        LinearRegression model = new LinearRegression(this.x, this.y);
 
         System.out.println("Slope (m): " + model.getSlope());
         System.out.println("Intercept (b): " + model.getIntercept());
-
-        // Example prediction
-        double predictX = 13;
         System.out.println("Predicted y for x = " + predictX + ": " + model.predict(predictX));
     }
 
