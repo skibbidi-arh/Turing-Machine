@@ -12,7 +12,7 @@ public class Main {
        // SolutionClass src = new SolutionClass();
 
         ModelApply ml = new ModelApply();
-        ml.LinearRG("homeprices.csv",5000);
+       // ml.LinearRG("homeprices.csv",5000);
 
 
     }
