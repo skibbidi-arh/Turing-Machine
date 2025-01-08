@@ -6,7 +6,7 @@ public class Main {
 
         Inverse In = new Inverse();
 
-        System.out.println(In.arcsec(2));
+     //   System.out.println(In.arcsec(2));
 
         SolutionClass src = new SolutionClass();
 
