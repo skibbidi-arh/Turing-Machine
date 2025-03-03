@@ -7,7 +7,7 @@ public class Main {
 //        System.out.println("This is has worked perfectly");
         TrigonometricGraph gc = new TrigonometricGraph();
         gc.EmptyGraphCreator();
-        TrigonometricGraph.plotdata(1, -1, 0);
+        TrigonometricGraph.plotdata(1, 1, 4);
         TrigonometricGraph.showgraph();
         System.out.println("This is has worked perfectly");
 
