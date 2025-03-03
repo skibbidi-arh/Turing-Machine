@@ -42,7 +42,7 @@ public class TrigonometricGraph {
     }
 
     public static void plotdata(int n_data, int m_data, int constant) {
-        for(int i = 5+constant; i >= -5+constant; --i) {
+        for(int i = 5; i >= -5; --i) {
             int x = (constant-m_data*i*i)/n_data;
             arr[50 + i][50 + x] = '*';
             System.out.println(x+" "+i);
