@@ -1,8 +1,10 @@
-public class Graph_Creator {
+import static java.lang.Math.sqrt;
+
+public class TrigonometricGraph {
     private static int n = 101;
     private static char[][] arr;
 
-    public Graph_Creator() {
+    public TrigonometricGraph() {
         this.EmptyGraphCreator();
     }
 
@@ -41,8 +43,8 @@ public class Graph_Creator {
 
     public static void plotdata(int n_data, int m_data, int constant) {
         for(int i = 6 + constant; i >= -6 - constant; --i) {
-            int x = (constant + m_data * i) / n_data;
-            arr[50 + i][50 + x+i] = '*';
+            int x = (int)sqrt((1-m_data*i*i)/n_data);
+            arr[50 + i][50 + x] = '*';
         }
 
     }
