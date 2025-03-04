@@ -33,8 +33,6 @@ public class Graph_Creator {
             for(int j = 0; j < n; ++j) {
                 System.out.print(arr[i][j] + " ");
             }
-
-            System.out.println();
         }
 
     }
