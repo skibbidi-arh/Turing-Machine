@@ -10,7 +10,7 @@ public class DurandKerner {
 
         for (int k = 0; k < n; k++) {
 
-            double angle = 2 * Math.PI * k / n;
+            double angle = 2 * Functions.PI() * k / n;
             roots[k] = new Complex(0.4 * Math.cos(angle), 0.4 * Math.sin(angle));
 
         }

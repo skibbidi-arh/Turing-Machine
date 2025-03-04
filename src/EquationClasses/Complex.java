@@ -37,15 +37,14 @@ public class Complex {
 
     public double magnitude() {
 
-        return Math.sqrt(real * real + imag * imag);
+        return Functions.squareRoot(real * real + imag * imag);
     }
 
 
     @Override
     public String toString() {
-
-        return String.format("%.6f + %.6fi", real, imag);
-
+        return real + " + " + imag + " i";
     }
+
 
 }
