@@ -120,7 +120,7 @@ public class TrigoGraph {
         return 1 / value;
     }
 
-    public static void main(String[] args) {
+    public void drawGrapg() {
         TrigoGraph fn = new TrigoGraph();
         Scanner scanner = new Scanner(System.in);
 
@@ -157,7 +157,7 @@ public class TrigoGraph {
                     fn.headline();
                     break;
                 case 8:
-                    System.out.println("\nYou are logged out Successfully!!");
+
                     break;
                 default:
                     System.out.println("\nError!! Invalid choice.");
