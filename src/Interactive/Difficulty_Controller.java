@@ -25,31 +25,21 @@ public class Difficulty_Controller {
                 variable_number = this.rand.nextInt(3);
                 break;
             case 2:
-                i=0;
-                while(true) {
-                    variable_number = this.rand.nextInt(6);
-                    if (variable_number > 3) {
-                        return variable_number;
-                    }
-
-                    ++i;
-                }
+                variable_number = this.rand.nextInt(5);
+                if (variable_number <= 3)
+                    variable_number = variable_number + 2;
+                break;
             case 3:
-                 i = 0;
-
-                while(true) {
-                    variable_number = this.rand.nextInt(8);
-                    if (variable_number > 5) {
-                        return variable_number;
-                    }
-
-                    ++i;
-                }
+                variable_number = this.rand.nextInt(6);
+                if (variable_number <= 4)
+                    variable_number = variable_number + 2;
+                break;
             default:
-                variable_number = this.rand.nextInt(8);
+                variable_number = this.rand.nextInt(6);
+                break;
+        }
+        return variable_number;
         }
 
-        return variable_number;
     }
-}
 

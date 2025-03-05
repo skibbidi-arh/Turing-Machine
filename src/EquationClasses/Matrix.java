@@ -6,7 +6,7 @@ import java.util.Arrays;
     private int rows;
     private int cols;
 
-    Matrix(double[][] matrixx) {
+    public Matrix(double[][] matrixx) {
         this.matrix = matrixx;
         this.rows = matrix.length;
         this.cols = matrix[0].length;
