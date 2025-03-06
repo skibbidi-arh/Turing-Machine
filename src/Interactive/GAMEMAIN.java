@@ -26,6 +26,23 @@ public class GAMEMAIN {
             char x= (char)(97+ i);
             System.out.print(x+" ");
         }
+        for(int i=0;i<difficulty_controller.variable_number();i++)
+        {
+             for(int j=0;j<difficulty_controller.variable_number();j++)
+             {
+                 char x= (char)(97+j);
+                 if(j>0 && arr[i][j]>x)
+                 {
+                     System.out.print("+"+arr[i][j]+x);
+                 }
+                 else
+                 {
+                     System.out.print(arr[i][j]+x);
+                 }
+             }
+             System.out.print("="+resultant.getMatrix()[i][0]);
+            System.out.println();
+        }
 
 
 
