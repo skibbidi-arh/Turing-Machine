@@ -1,4 +1,4 @@
-package src.EquationClasses;
+package EquationClasses;
 public class Functions {
 
     public static int max(int a, int b) {
