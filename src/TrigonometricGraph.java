@@ -1,8 +1,9 @@
-import static java.lang.Math.sqrt;
+import org.fusesource.jansi.AnsiConsole;
 
 public class TrigonometricGraph {
-    private static int n = 101;
+    private static int n =101;
     private static char[][] arr;
+    public static final String red = "\u001b[31;1m";
 
     public TrigonometricGraph() {
         this.EmptyGraphCreator();
@@ -31,24 +32,33 @@ public class TrigonometricGraph {
     }
 
     public static void showgraph() {
+        // AnsiConsole.systemInstall();
         for(int i = 0; i < n; ++i) {
             for(int j = 0; j < n; ++j) {
-                System.out.print(arr[i][j] + " ");
-            }
 
+                if(arr[i][j]=='*'){
+                    System.out.print('*');
+                }
+                else{
+                    System.out.print(arr[i][j] + " ");
+                }
+
+            }
             System.out.println();
         }
-
+        AnsiConsole.systemUninstall();
     }
 
-    public static void plotdata(int n_data, int m_data, int constant) {
-        for(int i = 5; i >= -5; --i) {
+    public static void plotdata(int n_data, int m_data, int constant,char  symbol) {
+        for(int i = 6; i >= -6; i--) {
             int x = (constant-m_data*i*i)/n_data;
-            arr[50 + i][50 + x] = '*';
-            System.out.println(x+" "+i);
+            System.out.println((x) +" "+(i));
+            arr[50 + i][50 + x] =symbol;
         }
+
     }
     static {
         arr = new char[n][n];
     }
 }
+//x = (-(by + d) ± √((by + d)² - 4a(cy² + ey + f))) / (2a)
