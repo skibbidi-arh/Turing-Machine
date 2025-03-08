@@ -3,167 +3,82 @@ package src.EquationClasses;
 import java.util.Scanner;
 
 public class TrigoGraph {
+    public  void plotGraph(String equation) {
+        int width = 100;
+        int height = 20;
+        double xStart = -Math.PI * 2;
+        double xEnd = Math.PI * 2;
 
-    private static final double PI = 3.14159265;
+        char[][] graph = new char[height][width];
 
-    public void headline() {
-        System.out.println("\t\t\t\t********************************");
-        System.out.println("\t\t\t\tGraphs of Trigonometric equations");
-        System.out.println("\t\t\t\t********************************");
-    }
-
-    public void draw(int choice) {
-        final int width = 80;  // Width of the terminal graph
-        final int height = 20; // Height of the terminal graph
-        final double scaleX = 2 * PI / width; // Horizontal scaling for radians
-        final double scaleY = 10;             // Vertical scaling factor
-
-        char[][] grid = new char[height][width];
-
-        // Initialize grid with spaces
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                grid[i][j] = ' ';
+                graph[i][j] = ' ';
             }
         }
-
-        axis(grid);
 
         for (int i = 0; i < width; i++) {
-            double x = (i - width / 2) * scaleX; // Map column to x value
-            double y;
+            double x = xStart + (xEnd - xStart) * i / (width - 1);
+            double y = calculateEquation(equation, x);
 
-            switch (choice) {
-                case 1:
-                    y = sine(x);
-                    break;
-                case 2:
-                    y = cosine(x);
-                    break;
-                case 3:
-                    y = tangent(x);
-                    break;
-                case 4:
-                    y = reciprocal(sine(x));
-                    break;
-                case 5:
-                    y = reciprocal(cosine(x));
-                    break;
-                case 6:
-                    y = reciprocal(tangent(x));
-                    break;
-                default:
-                    return;
+            if (Double.isNaN(y)) {
+                continue;
             }
 
-            // Map y to grid coordinates
-            int row = height / 2 - (int) (y * scaleY);
-            if (row >= 0 && row < height) {
-                grid[row][i] = '*';
+            int yPos = (int) ((y + 2) * (height / 4));
+
+            if (yPos >= 0 && yPos < height) {
+                graph[height - yPos - 1][i] = '*';
             }
         }
 
-        displayGrid(grid);
-    }
-
-    public void axis(char[][] grid) {
-        int width = 80;
-        int height = 20;
-
-        // Draw horizontal axis
-        for (int i = 0; i < width; i++) {
-            grid[height / 2][i] = '-';
-        }
-
-        // Draw vertical axis
         for (int i = 0; i < height; i++) {
-            grid[i][width / 2] = '|';
+            graph[i][width / 2] = '|';
+        }
+        for (int i = 0; i < width; i++) {
+            graph[height / 2][i] = '-';
         }
 
-        // Draw origin
-        grid[height / 2][width / 2] = '+';
-    }
-
-    public void displayGrid(char[][] grid) {
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                System.out.print(grid[i][j]);
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                System.out.print(graph[i][j]);
             }
             System.out.println();
         }
     }
 
-    private double sine(double x) {
-        double term = x, sum = x;
-        for (int i = 1; i <= 10; i++) {
-            term *= -x * x / ((2 * i) * (2 * i + 1));
-            sum += term;
+    public static double calculateEquation(String equation, double x) {
+        switch (equation) {
+            case "sin":
+                return Math.sin(x);
+            case "cos":
+                return Math.cos(x);
+            case "tan":
+                return Math.tan(x);
+            case "csc":
+                double sinVal = Math.sin(x);
+                return (sinVal != 0) ? 1 / sinVal : Double.NaN;
+            case "sec":
+                double cosVal = Math.cos(x);
+                return (cosVal != 0) ? 1 / cosVal : Double.NaN;
+            case "cot":
+                double tanVal = Math.tan(x);
+                return (tanVal != 0) ? 1 / tanVal : Double.NaN;
+            default:
+                throw new IllegalArgumentException("Invalid equation. Use 'sin', 'cos', 'tan', 'csc', 'sec', or 'cot'.");
         }
-        return sum;
     }
 
-    private double cosine(double x) {
-        double term = 1, sum = 1;
-        for (int i = 1; i <= 10; i++) {
-            term *= -x * x / ((2 * i - 1) * (2 * i));
-            sum += term;
-        }
-        return sum;
-    }
-
-    private double tangent(double x) {
-        return sine(x) / cosine(x);
-    }
-
-    private double reciprocal(double value) {
-        if (value == 0) return 0; // Avoid division by zero
-        return 1 / value;
-    }
-
-    public void drawGrapg() {
-        TrigoGraph fn = new TrigoGraph();
+    public  void draw() {
         Scanner scanner = new Scanner(System.in);
-
-        fn.headline();
-
-        System.out.println("********** All in One **********");
-        System.out.println("  1. Sine");
-        System.out.println("  2. Cosine");
-        System.out.println("  3. Tangent");
-        System.out.println("  4. Cosecant");
-        System.out.println("  5. Secant");
-        System.out.println("  6. Cotangent");
-        System.out.println("  7. Clear");
-        System.out.println("  8. Exit");
-        System.out.println("********************************\n");
-
-        int choice = 0;
-        while (choice != 8) {
-            System.out.print("\nEnter your choice: ");
-            choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    fn.draw(choice);
-                    break;
-                case 7:
-                    System.out.print("\033[H\033[2J"); // Clear terminal screen
-                    System.out.flush();
-                    fn.headline();
-                    break;
-                case 8:
-
-                    break;
-                default:
-                    System.out.println("\nError!! Invalid choice.");
+        while (true) {
+            System.out.println("Enter the trigonometric function (sin, cos, tan, csc, sec, cot) or 0 to exit: ");
+            String equation = scanner.nextLine().trim().toLowerCase();
+            if (equation.equals("0")) {
+                break;
             }
+            plotGraph(equation);
         }
         scanner.close();
     }
 }
-
