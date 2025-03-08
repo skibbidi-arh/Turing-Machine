@@ -18,7 +18,6 @@ public class Graph_Creator {
         int range = 20;
         for(double i=-16;i<=0;i++) {
             double x = (constant + x_cof * i) / y_cof;
-            //   System.out.println(x+" "+i);
             if(x<0) {x*=-1;}
             range = Math.max(range, (int) (x*10));
             range = Math.max(range, (int)((i < 0) ? i * -1 : i));
