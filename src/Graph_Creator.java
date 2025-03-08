@@ -55,7 +55,6 @@ public class Graph_Creator {
             int center = axis/2;
             if(x<0){x*=-1;if(x*10>center){ x=center-1; }else{x*=10;}x*=-1;}
             else{if(x*10>center){x=center-1;}else{x*=10;}}
-            System.out.println((x+center)+" "+(i+center));
             arr[center+(int)x][center+(int)i]='*';
         }
 
