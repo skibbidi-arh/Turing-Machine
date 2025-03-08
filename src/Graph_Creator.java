@@ -1,12 +1,15 @@
+import java.util.Arrays;
+
 public class Graph_Creator {
     public int axis;
     static char arr[][];
-    double x_index;
-    double y_index;
-    double constant;
+    int x_index;
+    int y_index;
+    int constant;
+    int range_map[];
 
 
-    public Graph_Creator(double x_index, double y_index,double constant) {
+    public Graph_Creator(int x_index, int y_index,int constant) {
         this.x_index = x_index;
         this.y_index = y_index;
         this.constant = constant;
@@ -14,15 +17,16 @@ public class Graph_Creator {
         this.findrange(x_index, y_index, constant);
 
     }
-    public  void findrange(double x_cof,double y_cof,double constant) {
+    public  void findrange(int x_cof,int y_cof,int constant) {
         int range = 20;
-        for(double i=-16;i<=0;i++) {
-            double x = (constant + x_cof * i) / y_cof;
+        for(int i=-7;i<=7;i+=1) {
+            int x = (constant + y_cof * i) / x_cof;
             if(x<0) {x*=-1;}
-            range = Math.max(range, (int) (x*10));
-            range = Math.max(range, (int)((i < 0) ? i * -1 : i));
+            range = Math.max(range,x);
+            System.out.print(x+" ");
+            //range = Math.max(range, (int)((i < 0) ? i * -1 : i));
         }
-        this.axis=range+1;
+        this.axis=(int)range+10;
         System.out.println(axis);
         this.create_Empty_graph();
     }
@@ -46,15 +50,35 @@ public class Graph_Creator {
         }
         this.plot_points(x_index,y_index,constant);
     }
-    public void plot_points(double x_index,double y_index,double constant) {
-        double i;
-        int d=0;
-        for( i=-8;i<=8;i++) {
-            double x = (-constant + x_index * i) / y_index;
-            int center = axis/2;
-            if(x<0){x*=-1;if(x*10>center){ x=center-1; }else{x*=10;}x*=-1;}
-            else{if(x*10>center){x=center-1;}else{x*=10;}}
-            arr[center+(int)x][center+(int)i]='*';
+    public void plot_points(int x_index,int y_index,int constant) {
+        this.range_map = new int[axis+1];
+        Arrays.fill(range_map,-1);
+        int center=axis/2;
+        System.out.println("Center: "+center);
+        for(int i=-7;i<=7;i+=1) {
+            int x = (constant + y_index * i) / x_index;
+            int row_data;
+            int col_data;
+            col_data=center+x;
+            row_data=center+i;
+            if(x_index>0 && col_data<axis && col_data>0) {
+                while (col_data >0 && col_data < axis && range_map[col_data] != -1) {
+                    col_data = col_data + 1;
+                }
+                range_map[col_data] = 1;
+            }
+            else if(x_index<0 && col_data<axis && col_data>0){
+                while (range_map[col_data] != -1 && col_data >0 && col_data < axis) {
+                    col_data = col_data - 1;
+                }
+                range_map[col_data] = 1;
+            }
+            if(col_data>0 && col_data<axis && row_data>0 && row_data<axis) {
+                arr[row_data][col_data]='*';
+            }
+            System.out.println(col_data+" "+row_data);
+
+
         }
 
     }
