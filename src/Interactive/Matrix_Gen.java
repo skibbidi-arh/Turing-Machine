@@ -1,13 +1,17 @@
 package Interactive;
 
+import EquationClasses.Matrix;
+import EquationClasses.StrassenMultiply;
+
 import java.util.Random;
 
 public class Matrix_Gen {
     private double[][] variable_matrix;
     private double[][] value_matrix;
-    src.Interactive.Difficulty_Controller difficulty_controller;
+    private double[][] answer_matrix;
+    Difficulty_Controller difficulty_controller;
 
-    public Matrix_Gen(src.Interactive.Difficulty_Controller difficulty_controller) {
+    public Matrix_Gen(Difficulty_Controller difficulty_controller) {
         this.difficulty_controller = difficulty_controller;
         int var_num = difficulty_controller.variable_number();
         this.variable_matrix = new double[var_num][var_num];
@@ -30,7 +34,7 @@ public class Matrix_Gen {
             }
         }
 
-        for (int i = 0; i < variable_number; i++) {
+        for (int i = 0; i < value_matrix.length; i++) {
             x = rand.nextInt(difficulty_controller.getDifficulty()*10);
             y=rand.nextInt(difficulty_controller.getDifficulty());
             if(y%2==1)
@@ -39,6 +43,10 @@ public class Matrix_Gen {
             }
             value_matrix[i][0] = x;
         }
+        Matrix matrix1 = new Matrix(value_matrix);
+        Matrix matrix2 = new Matrix(variable_matrix);
+        StrassenMultiply str= new StrassenMultiply(matrix1, matrix2);
+        answer_matrix = str.Mul();
     }
 
     public double[][] getValue_matrix() {

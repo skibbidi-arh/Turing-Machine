@@ -1,8 +1,8 @@
 package EquationClasses;
 
 public class InverseMatrix {
-    private EquationClasses.Matrix matrix;
-    public InverseMatrix(EquationClasses.Matrix matrix) {
+    private Matrix matrix;
+    public InverseMatrix(Matrix matrix) {
         this.matrix = matrix;
     }
 
@@ -55,7 +55,7 @@ public class InverseMatrix {
         matrix.setMatrix(inverse);
     }
 
-    public EquationClasses.Matrix getMatrix() {
+    public Matrix getMatrix() {
         return matrix;
     }
 }

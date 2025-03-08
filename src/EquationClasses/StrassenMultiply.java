@@ -1,10 +1,12 @@
 package EquationClasses;
 
-import static EquationClasses.Matrix.*;
+
+import static EquationClasses.Matrix.add;
+import static EquationClasses.Matrix.subtract;
 
 public class StrassenMultiply {
     Matrix matrix1,matrix2;
-    StrassenMultiply(Matrix A, Matrix B) {
+    public StrassenMultiply(Matrix A, Matrix B) {
         this.matrix1 = A;
         this.matrix2 = B;
     }
@@ -49,13 +51,13 @@ public class StrassenMultiply {
             splitMatrix(B, B11, B12, B21, B22);
 
 
-            double[][] M1 = strassen_Multiply(Matrix.add(A11, A22), Matrix.add(B11, B22));
-            double[][] M2 = strassen_Multiply(Matrix.add(A21, A22), B11);
-            double[][] M3 = strassen_Multiply(A11, Matrix.subtract(B12, B22));
-            double[][] M4 = strassen_Multiply(A22, Matrix.subtract(B21, B11));
-            double[][] M5 = strassen_Multiply(Matrix.add(A11, A12), B22);
-            double[][] M6 = strassen_Multiply(Matrix.subtract(A21, A11), Matrix.add(B11, B12));
-            double[][] M7 = strassen_Multiply(subtract(A12, A22), Matrix.add(B21, B22));
+            double[][] M1 = strassen_Multiply(add(A11, A22), add(B11, B22));
+            double[][] M2 = strassen_Multiply(add(A21, A22), B11);
+            double[][] M3 = strassen_Multiply(A11, subtract(B12, B22));
+            double[][] M4 = strassen_Multiply(A22, subtract(B21, B11));
+            double[][] M5 = strassen_Multiply(add(A11, A12), B22);
+            double[][] M6 = strassen_Multiply(subtract(A21, A11), add(B11, B12));
+            double[][] M7 = strassen_Multiply(subtract(A12, A22), add(B21, B22));
 
 
             double[][] C11 = add(subtract(add(M1, M4), M5), M7);
