@@ -53,12 +53,33 @@ public class TrigonometricGraph {
         for(int i = 6; i >= -6; i--) {
             int x = (constant-m_data*i*i)/n_data;
             System.out.println((x) +" "+(i));
+            x = TrigonometricGraph.checkvalidity(x);
+            i=TrigonometricGraph.checkvalidity(i);
             arr[50 + i][50 + x] =symbol;
         }
 
     }
     static {
         arr = new char[n][n];
+    }
+    public static int checkvalidity(int x){
+                if(x>0){
+                    if(x+50>100){
+                        int rem = (x+50)-100;
+                        x-=rem;
+                    }
+                }
+                else{
+                    x*=-1;
+                    if(x+50>100){
+                        int rem = (x+50)-100;
+                        x-=rem;
+                    }
+                    x*=-1;
+
+                }
+
+        return x;
     }
 }
 //x = (-(by + d) ± √((by + d)² - 4a(cy² + ey + f))) / (2a)

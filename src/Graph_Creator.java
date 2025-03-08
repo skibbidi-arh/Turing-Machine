@@ -1,62 +1,92 @@
-import org.fusesource.jansi.AnsiConsole;
-
 public class Graph_Creator {
-    private static int n = 101;
-    private static char[][] arr;
-    public static final String red = "\u001b[31;1m";
+    public int axis;
+    static char arr[][];
+    double x_index;
+    double y_index;
+    double constant;
 
-    public Graph_Creator() {
-        this.EmptyGraphCreator();
+
+    public Graph_Creator(double x_index, double y_index,double constant) {
+        this.x_index = x_index;
+        this.y_index = y_index;
+        this.constant = constant;
+        System.out.println(x_index+" "+y_index+" "+constant);
+        this.findrange(x_index, y_index, constant);
+
     }
-
-    public void EmptyGraphCreator() {
-        for(int i = 0; i < n; ++i) {
-            for(int j = 0; j < n; ++j) {
+    public  void findrange(double x_cof,double y_cof,double constant) {
+        int range = 20;
+        for(double i=-16;i<=0;i++) {
+            double x = (constant + x_cof * i) / y_cof;
+            //   System.out.println(x+" "+i);
+            if(x<0) {x*=-1;}
+            range = Math.max(range, (int) (x*10));
+            range = Math.max(range, (int)((i < 0) ? i * -1 : i));
+        }
+        this.axis=range+1;
+        System.out.println(axis);
+        this.create_Empty_graph();
+    }
+    public  void create_Empty_graph(){
+        Graph_Creator.arr = new char[axis+1][axis+1];
+        for(int i=0;i<arr.length;i++) {
+            for(int j=0;j<arr[i].length;j++) {
                 arr[i][j] = ' ';
             }
         }
-
-        this.createaxis();
+        this.create_axis();
     }
-
-    public void createaxis() {
+    public void create_axis() {
         int i;
-        for(i = n - 1; i >= 0; --i) {
-            arr[50][i] = '.';
+        for(i = axis - 1; i >= 0; --i) {
+            arr[axis/2][i] = '.';
         }
 
-        for(i = n - 1; i >= 0; --i) {
-            arr[i][50] = '.';
+        for(i = axis - 1; i >= 0; --i) {
+            arr[i][axis/2] = '.';
+        }
+        this.plot_points(x_index,y_index,constant);
+    }
+    public void plot_points(double x_index,double y_index,double constant) {
+        double i;
+        int d=0;
+        for( i=-8;i<=8;i++) {
+            double x = (-constant + x_index * i) / y_index;
+            int center = axis/2;
+            if(x<0){x*=-1;if(x*10>center){ x=center-1; }else{x*=10;}x*=-1;}
+            else{if(x*10>center){x=center-1;}else{x*=10;}}
+            System.out.println((x+center)+" "+(i+center));
+            arr[center+(int)x][center+(int)i]='*';
         }
 
     }
-
-    public static void showgraph() {
-       // AnsiConsole.systemInstall();
-        for(int i = 0; i < n; ++i) {
-            for(int j = 0; j < n; ++j) {
-
-                        if(arr[i][j]=='*'){
-                            System.out.print('*');
-                        }
-                        else{
-                            System.out.print(arr[i][j] + " ");
-                        }
-
+    public  void Display_graph(){
+        for(int i=0;i<arr.length;i++) {
+            for(int j=0;j<arr[i].length;j++) {
+                System.out.print(arr[i][j]+" ");
             }
             System.out.println();
         }
-        AnsiConsole.systemUninstall();
     }
 
-    public static void plotdata(int n_data, int m_data, int constant,char  symbol) {
-        for(int i = 6 + constant; i >= -6 - constant; i-=2) {
-            int x = (constant + m_data * i) / n_data;
-            arr[50 + i][50 + x] =symbol;
-        }
 
-    }
-    static {
-        arr = new char[n][n];
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
