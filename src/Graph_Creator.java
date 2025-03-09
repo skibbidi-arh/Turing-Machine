@@ -85,7 +85,10 @@ public class Graph_Creator {
     public  void Display_graph(){
         for(int i=0;i<arr.length;i++) {
             for(int j=0;j<arr[i].length;j++) {
-                System.out.print(arr[i][j]+" ");
+                if(arr[i][j]=='*') {System.out.print("\033[31m"+arr[i][j]+"\033[0m"+" ");}
+                 else if(arr[i][j]=='#') {System.out.print("\033[32m"+arr[i][j]+"\033[0m"+" ");}
+                 else if(arr[i][j]=='.') {System.out.print("\033[38m"+arr[i][j]+"\033[0m"+" ");}
+                 else{System.out.print(arr[i][j]+" ");}
             }
             System.out.println();
         }
