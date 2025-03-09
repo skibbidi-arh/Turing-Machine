@@ -13,7 +13,7 @@ public class Graph_Creator {
         this.x_index = x_index;
         this.y_index = y_index;
         this.constant = constant;
-        System.out.println(x_index+" "+y_index+" "+constant);
+       // System.out.println(x_index+" "+y_index+" "+constant);
         this.findrange(x_index, y_index, constant);
 
     }
