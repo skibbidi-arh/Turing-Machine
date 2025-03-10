@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Graph_Creator {
+public class LinearGraph {
     public int axis;
     static char arr[][];
     int x_index;
@@ -9,7 +9,7 @@ public class Graph_Creator {
     int range_map[];
 
 
-    public Graph_Creator(int x_index, int y_index,int constant) {
+    public LinearGraph(int x_index, int y_index,int constant) {
         this.x_index = x_index;
         this.y_index = y_index;
         this.constant = constant;
@@ -31,7 +31,7 @@ public class Graph_Creator {
         this.create_Empty_graph();
     }
     public  void create_Empty_graph(){
-        Graph_Creator.arr = new char[axis+1][axis+1];
+        LinearGraph.arr = new char[axis+1][axis+1];
         for(int i=0;i<arr.length;i++) {
             for(int j=0;j<arr[i].length;j++) {
                 arr[i][j] = ' ';
