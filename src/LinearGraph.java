@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class LinearGraph {
+
     public int axis;
     static char arr[][];
     int x_index;
@@ -10,6 +11,7 @@ public class LinearGraph {
 
 
     public LinearGraph(int x_index, int y_index,int constant) {
+        System.out.println("Enter the constant values :");
         this.x_index = x_index;
         this.y_index = y_index;
         this.constant = constant;
