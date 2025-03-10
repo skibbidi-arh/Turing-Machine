@@ -42,7 +42,6 @@ public class PolynomialGraph {
         }
         public void createEmptyGraph() {
             // Create a 2D character array
-           // Fixed size for plotting
             this.graph = new char[size][size];
             this.centerX = size / 2;
             this.centerY = size / 2;
