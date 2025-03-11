@@ -1,11 +1,15 @@
 package EquationClasses;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Matrix {
     private double[][] matrix;
     private int rows;
     private int cols;
-
+    Scanner sc = new Scanner(System.in);
+    public Matrix(int rows, int cols) {
+        matrixInput(rows, cols);
+    }
     public Matrix(double[][] matrixx) {
         this.matrix = matrixx;
         this.rows = matrix.length;
@@ -54,6 +58,15 @@ public class Matrix {
 
         for (double[] row :matrix ) {
             System.out.println(Arrays.toString(row));
+        }
+    }
+
+    public void matrixInput(int dimentionX, int dimentionY) {
+        for(int i = 0; i < dimentionX; i++) {
+            System.out.println("Enter row number " + (i+1));
+            for(int j = 0; j < dimentionY; j++) {
+                matrix[i][j] = sc.nextDouble();
+            }
         }
     }
 }
