@@ -2,20 +2,23 @@ package EquationClasses;
 
 import EquationClasses.Functions;
 
-public class Trigonometry {
+public static class Trigonometry {
 
-    double  PI =3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679;
+    static double  PI =3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679;
 
-    public  double DegreeToRadian(double degree) {
+    Trigonometry() {
+    }
+
+    public static double DegreeToRadian(double degree) {
         return degree * PI/ 180;
     }
 
-    public double RadianToDegrees(double radians) {
+    public static double RadianToDegrees(double radians) {
         return radians * 180 /  PI;
     }
 
 
-    public  double power(double base, int exponent) {
+    public static double power(double base, int exponent) {
         // Handle the case where exponent is 0 (anything to the power of 0 is 1)
         if (exponent == 0) {
             return 1;
@@ -39,7 +42,7 @@ public class Trigonometry {
     }
 
 
-    public  long factorial(int n) {
+    public static long factorial(int n) {
         if (n == 0 || n == 1) {
             return 1;
         }
@@ -52,7 +55,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double sin(double x) {
+    public static double sin(double x) {
 
         if(x>360){
 
@@ -109,7 +112,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public  double cos(double x) {
+    public static  double cos(double x) {
 
         if (x > 360) {
             double s = x / 360;
@@ -158,7 +161,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double tan(double x) throws  TrigonoValueError{
+    public static double tan(double x) throws  TrigonoValueError{
         if (x > 180) {
             double s = x / 180;
             x = x - 180 * (int) s;
@@ -190,7 +193,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double cot(double x) throws  TrigonoValueError{
+    public static double cot(double x) throws  TrigonoValueError{
         if (x == 0) {
             throw new TrigonoValueError("cot(0°) is undefined");    // cot(0°) is undefined
         } else if (x == 30) {
@@ -214,7 +217,7 @@ public class Trigonometry {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double cosec(double x) throws  TrigonoValueError{
+    public static double cosec(double x) throws  TrigonoValueError{
         if (x == 0) {
             throw new TrigonoValueError("cosec(0°) is undefined");    // cosec(0°) is undefined
         } else if (x == 30) {
@@ -238,7 +241,7 @@ public class Trigonometry {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public double sec(double x) throws  TrigonoValueError{
+    public static double sec(double x) throws  TrigonoValueError{
         if (x == 0) {
             return 1.0;     // sec(0°) = 1
         } else if (x == 30) {
@@ -262,7 +265,7 @@ public class Trigonometry {
     }
 
 
-
-
-
+    public static Trigonometry createTrigonometry() {
+        return new Trigonometry();
+    }
 }

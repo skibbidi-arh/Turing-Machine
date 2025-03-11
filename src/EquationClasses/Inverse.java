@@ -1,5 +1,5 @@
 package EquationClasses;
-public class Inverse extends Trigonometry {
+public static class Inverse extends Trigonometry {
 
 
 
@@ -8,7 +8,7 @@ public class Inverse extends Trigonometry {
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public  double arcsin(double x ) throws TrigonoValueError {
+    public static double arcsin(double x ) throws TrigonoValueError {
         int terms = 50;
         if (x < -1 || x > 1) {
             throw new TrigonoValueError("x must be in the range -1 to 1");
@@ -49,13 +49,13 @@ public class Inverse extends Trigonometry {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double arccos(double x ) throws TrigonoValueError {
+    public static double arccos(double x ) throws TrigonoValueError {
         return 90-arcsin(x);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double arctan(double x) throws TrigonoValueError {
+    public static double arctan(double x) throws TrigonoValueError {
         int terms = 50;
         boolean isLarge = false;
 
@@ -97,13 +97,13 @@ public class Inverse extends Trigonometry {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double arccot(double x ) throws TrigonoValueError {
+    public static double arccot(double x ) throws TrigonoValueError {
         return 90- arctan(x);
     }
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public double arcsec(double x) throws TrigonoValueError {
+    public static double arcsec(double x) throws TrigonoValueError {
         int terms = 50;
 
         if (Math.abs(x) < 1) {
@@ -151,7 +151,7 @@ public class Inverse extends Trigonometry {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public double arccosec(double x ) throws TrigonoValueError {
+    public static double arccosec(double x ) throws TrigonoValueError {
         return 90-arcsec(x);
     }
 

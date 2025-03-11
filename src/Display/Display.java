@@ -25,7 +25,8 @@ public class Display {
             System.out.println("1.Linear Equation: ");
             System.out.println("2.Polynomial Equation: ");
             System.out.println("3.Mixed Equation: ");
-            System.out.println("4.Exit Program");
+            System.out.println("4.Matrix Solution: ");
+            System.out.println("5.Exit Program");
             System.out.println("Give input: ");
             int choice2 = in.nextInt();
             if(choice2 == 1) {
@@ -35,6 +36,12 @@ public class Display {
             else if(choice2 == 2) {
                 PolynomialDisplay polynomial = new PolynomialDisplay();
                 polynomial.displayPolynomial();
+            }
+            else if(choice2 == 3) {
+
+            }
+            else if(choice2 == 4) {
+
             }
         }
         else if (choice == 2) {
