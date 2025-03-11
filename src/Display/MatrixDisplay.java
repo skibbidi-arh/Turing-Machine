@@ -13,9 +13,10 @@ public class MatrixDisplay {
         System.out.println("1.Addition: ");
         System.out.println("2.Subtraction: ");
         System.out.println("3.Multiplication: ");
-        System.out.println("4.Inverse Matrix: ");
-        System.out.println("5.LU Decomposition: ");
-        System.out.println("6.Elemination Matrix: ");
+        System.out.println("4.Determinant: ");
+        System.out.println("5.Inverse Matrix: ");
+        System.out.println("6.LU Decomposition: ");
+        System.out.println("7.Elemination Matrix: ");
         System.out.println("Give Input: ");
         int choice = sc.nextInt();
         int I,J;
@@ -75,12 +76,20 @@ public class MatrixDisplay {
                 I = sc.nextInt();
                 System.out.println("Enter values for Matrix: ");
                 Matrix matrix1 = new Matrix(I,I);
-                InverseMatrix inv= new InverseMatrix(matrix1);
+                Determinant determinant = new Determinant(matrix1);
+                System.out.println("Result: "+ determinant.getDeterminantValue());
+                break;
+            case 5:
+                System.out.println("Enter Dimentions of Matrix: ");
+                I = sc.nextInt();
+                System.out.println("Enter values for Matrix: ");
+                Matrix matrix11 = new Matrix(I,I);
+                InverseMatrix inv= new InverseMatrix(matrix11);
                 inv.invert();
                 System.out.println("Result: ");
                 inv.getMatrix().printMatrix();
                 break;
-            case 5:
+            case 6:
                 System.out.println("Enter Dimentions of the Matrix: ");
                 I = sc.nextInt();
                 System.out.println("Enter values for Matrix: ");
@@ -89,7 +98,7 @@ public class MatrixDisplay {
                 ld.printUpper();
                 ld.printLower();
                 break;
-            case 6:
+            case 7:
                 System.out.println("Enter Dimentions of the Matrix: ");
                 I = sc.nextInt();
                 System.out.println("Enter values for Matrix: ");

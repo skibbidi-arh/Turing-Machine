@@ -1,5 +1,7 @@
 package Display;
 
+import EquationClasses.Matrix;
+
 import java.util.Scanner;
 
 public class Display {
@@ -41,7 +43,8 @@ public class Display {
 
             }
             else if(choice2 == 4) {
-
+                MatrixDisplay matrixdisplay = new MatrixDisplay();
+                matrixdisplay.display();
             }
         }
         else if (choice == 2) {

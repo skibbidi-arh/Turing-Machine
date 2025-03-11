@@ -1,5 +1,5 @@
 package EquationClasses;
-public static class Inverse extends Trigonometry {
+public class Inverse extends Trigonometry {
 
 
 
