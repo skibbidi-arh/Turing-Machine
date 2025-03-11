@@ -94,6 +94,19 @@ public class Vector {
     }
     public double value()
     {
-        return 0.0;
+        return Functions.squareRoot(vector[0]*vector[0]+vector[1]*vector[1]+vector[2]*vector[2]);
+    }
+    public double AngleBetweenVectors(Vector A, Vector B) throws TrigonoValueError {
+        double c = DotProduction(A.getVector(), B.getVector());
+        double C = c/(A.value()*B.value());
+        return Inverse.arccos(C);
+    }
+    public double Resultant(Vector A, Vector B,double angle) throws TrigonoValueError {
+        return Functions.squareRoot(Functions.power(A.value(),2)+Functions.power(B.value(),2)+2*A.value()*B.value()*Trigonometry.cos(angle));
+    }
+    public double ResultantAngle(Vector A, Vector B) throws TrigonoValueError {
+        double alpha= AngleBetweenVectors(A, B);
+        double c= B.value()*Trigonometry.sin(alpha)/(A.value()+B.value()*Trigonometry.cos(alpha));
+        return Inverse.arctan(c);
     }
 }
