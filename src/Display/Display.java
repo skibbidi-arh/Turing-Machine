@@ -47,6 +47,10 @@ public class Display {
                 MatrixDisplay matrixdisplay = new MatrixDisplay();
                 matrixdisplay.display();
             }
+            else if(choice2 == 5) {
+                VectorDIsplay vector = new VectorDIsplay();
+                vector.display();
+            }
         }
         else if (choice == 2) {
         }
