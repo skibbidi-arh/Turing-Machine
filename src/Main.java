@@ -1,6 +1,7 @@
 
 import Display.Display;
 import EquationClasses.Matrix;
+import EquationClasses.TrigonoValueError;
 import Interactive.LinearQuestion;
 import Interactive.Matrix_Gen;
 import Interactive.VectorQuestion;
@@ -8,7 +9,7 @@ import Interactive.VectorQuestion;
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TrigonoValueError {
 //        Display display = new Display();
 //        display.display();
 //        VectorQuestion vq = new VectorQuestion();
@@ -26,6 +27,8 @@ public class Main {
 //        LinearQuestion lq = new LinearQuestion();
 //        lq.generateLinearQuestion();
 
+        Display display = new Display();
+        display.display();
 
     }
 }

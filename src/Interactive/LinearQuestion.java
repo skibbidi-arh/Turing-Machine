@@ -12,6 +12,7 @@ public class LinearQuestion {
     Matrix mVal= new Matrix(matrix_gen.getValue_matrix());
     Matrix mAns= new Matrix(matrix_gen.getAnswer_matrix());
     LUdecompose lud = new LUdecompose(m);
+    ResultMatcher rm= ResultMatcher.getMatcher();
     public LinearQuestion(){
         matrix_gen.array_initialization();
     }
@@ -27,10 +28,29 @@ public class LinearQuestion {
                 mAns.setMatrix(matrix_gen.getAnswer_matrix());
                 mVal.setMatrix(matrix_gen.getAnswer_matrix());
                 this.printLinearEquation(m,mVal);
+                rm.LinearChecker(mAns,1);
+
             break;
             case 1:
-                System.out.println("Solve the Quadratic Equation");
-            break;
+                System.out.println("Find Lower Matix of the Equation");
+                matrix_gen.array_initialization();
+                m.setMatrix(matrix_gen.getVariable_matrix());
+                mAns.setMatrix(matrix_gen.getAnswer_matrix());
+                mVal.setMatrix(matrix_gen.getAnswer_matrix());
+                this.printLinearEquation(m,mVal);
+                LUdecompose ld = new LUdecompose(m);
+                rm.LinearChecker(ld.getupMatrix(),1);
+                break;
+            case 2:
+                System.out.println("Find Upper Matix of the Equation");
+                matrix_gen.array_initialization();
+                m.setMatrix(matrix_gen.getVariable_matrix());
+                mAns.setMatrix(matrix_gen.getAnswer_matrix());
+                mVal.setMatrix(matrix_gen.getAnswer_matrix());
+                this.printLinearEquation(m,mVal);
+                LUdecompose ld2 = new LUdecompose(m);
+                rm.LinearChecker(ld2.getupMatrix(),1);
+                break;
         }
 
     }
