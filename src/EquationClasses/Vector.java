@@ -15,6 +15,9 @@ public class Vector {
 
         }
     }
+    public Vector(double[] vector) {
+        this.vector = vector;
+    }
 
     public void inputVector(int dimensions){
         double[] temp= new double[3];
@@ -44,6 +47,7 @@ public class Vector {
     public double[] getVector() {
         return vector;
     }
+
     public double[] vecAddition(double[] A, double[] B) {
         double[] C = new double[A.length];
         for (int i = 0; i < A.length; i++) {

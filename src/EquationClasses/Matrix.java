@@ -20,7 +20,6 @@ public class Matrix {
         this.rows = matrixx.length;
         this.cols = matrixx[0].length;
     }
-
     public int getRows() {
         return rows;
     }

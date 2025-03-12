@@ -10,22 +10,31 @@ public class Matrix_Gen {
     private double[][] value_matrix;
     private double[][] answer_matrix;
     Difficulty_Controller difficulty_controller;
+    private int var_num;
 
     public Matrix_Gen(Difficulty_Controller difficulty_controller) {
         this.difficulty_controller = difficulty_controller;
-        int var_num = difficulty_controller.variable_number();
+        this.var_num = difficulty_controller.variable_number();
         this.variable_matrix = new double[var_num][var_num];
         this.value_matrix = new double[var_num][1];
+        this.answer_matrix = new double[var_num][1];
 
+
+    }
+    public Matrix_Gen(int var_num) {
+        this.var_num = var_num;
+        this.variable_matrix = new double[var_num][var_num];
+        this.value_matrix = new double[var_num][1];
+        this.answer_matrix = new double[var_num][1];
     }
     public void array_initialization(){
         Random rand = new Random();
         int x,y;
-        int variable_number= difficulty_controller.variable_number();
-        for(int i=0; i<variable_matrix.length; i++){
-            for(int j=0; j<variable_matrix[i].length; j++){
-                x = rand.nextInt(difficulty_controller.getDifficulty()*10);
-                y=rand.nextInt(difficulty_controller.getDifficulty());
+        int variable_number=var_num;
+        for(int i=0; i<var_num; i++){
+            for(int j=0; j<var_num; j++){
+                x = rand.nextInt(var_num*10);
+                y=rand.nextInt(var_num*10);
                 if(y%2==1)
                 {
                     x= x*(-1);
@@ -34,19 +43,19 @@ public class Matrix_Gen {
             }
         }
 
-        for (int i = 0; i < value_matrix.length; i++) {
-            x = rand.nextInt(difficulty_controller.getDifficulty()*10);
-            y=rand.nextInt(difficulty_controller.getDifficulty());
+        for (int i = 0; i < var_num; i++) {
+            x = rand.nextInt(var_num*10);
+            y=rand.nextInt(var_num);
             if(y%2==1)
             {
                 x= x*(-1);
             }
-            value_matrix[i][0] = x;
+            answer_matrix[i][0] = x;
         }
-        Matrix matrix1 = new Matrix(value_matrix);
+        Matrix matrix1 = new Matrix(answer_matrix);
         Matrix matrix2 = new Matrix(variable_matrix);
         StrassenMultiply str= new StrassenMultiply(matrix1, matrix2);
-        answer_matrix = str.Mul();
+        value_matrix = str.Mul();
     }
 
     public double[][] getValue_matrix() {
@@ -55,5 +64,12 @@ public class Matrix_Gen {
 
     public double[][] getVariable_matrix() {
         return variable_matrix;
+    }
+    public double[][] getAnswer_matrix() {
+        return answer_matrix;
+    }
+
+    public void setVar_num(int var_num) {
+        this.var_num = var_num;
     }
 }
