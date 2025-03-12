@@ -23,8 +23,9 @@ public class Main {
 //        m.array_initialization();
 //        Matrix matrix2 = new Matrix(m.getVariable_matrix());
 //        matrix2.printMatrix();
-        LinearQuestion lq = new LinearQuestion();
-        lq.generateLinearQuestion();
+//        LinearQuestion lq = new LinearQuestion();
+//        lq.generateLinearQuestion();
+
 
     }
 }

@@ -34,6 +34,7 @@ public class VectorQuestion {
                         A = vg.genVector();
                         B = vg.genVector();
                         result= A.DotProduction(A.getVector(),B.getVector());
+
                     break;
                     case 4:
                         System.out.println("Perform the Cross of Two Vectors");
