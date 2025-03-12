@@ -17,11 +17,12 @@ public class VectorDIsplay {
         System.out.println("What do you want to do?");
         System.out.println("1.Addition: ");
         System.out.println("2.Subtraction: ");
-        System.out.println("3.Angle Between Vectors: ");
-        System.out.println("4.Dot Product: ");
-        System.out.println("5.Cross Product: ");
-        System.out.println("6.Resultant: ");
-        System.out.println("7.Divergence: ");;
+        System.out.println("3.Value of Vector: ");
+        System.out.println("4.Angle Between Vectors: ");
+        System.out.println("5.Dot Product: ");
+        System.out.println("6.Cross Product: ");
+        System.out.println("7.Resultant: ");
+        System.out.println("8.Divergence: ");;
         System.out.println("Give Input: ");
         int choice = sc.nextInt();
         switch (choice){
@@ -49,12 +50,18 @@ public class VectorDIsplay {
                 System.out.println("Enter Dimention for Vector1: ");
                 dim = sc.nextInt();
                 v1= new Vector1(dim);
+                double value = v1.value();
+                System.out.println("Value of Vector1: " + value);
+            case 4:
+                System.out.println("Enter Dimention for Vector1: ");
+                dim = sc.nextInt();
+                v1= new Vector1(dim);
                 System.out.println("Enter Dimention for Vector2: ");
                 dim = sc.nextInt();
                 v2= new Vector1(dim);
                 angle= v1.AngleBetweenVectors(v1,v2);
                 System.out.println("Angle: "+angle);
-            case 4:
+            case 5:
                 System.out.println("Enter Dimention for Vector1: ");
                 dim = sc.nextInt();
                 v1= new Vector1(dim);
@@ -64,7 +71,7 @@ public class VectorDIsplay {
                 double dot= v1.DotProduction(v1.getVector(),v2.getVector());
                 System.out.println("Dot Product: "+dot);
                 break;
-            case 5:
+            case 6:
                 System.out.println("Enter Dimention for Vector1: ");
                 dim = sc.nextInt();
                 v1= new Vector1(dim);
@@ -75,7 +82,7 @@ public class VectorDIsplay {
                 System.out.print("Cross Product: ");
                 result.printVector();
                 break;
-            case 6:
+            case 7:
                 System.out.println("Enter Dimention for Vector1: ");
                 dim = sc.nextInt();
                 v1= new Vector1(dim);
@@ -87,7 +94,7 @@ public class VectorDIsplay {
                 System.out.println("Resultant: "+resultant);
                 System.out.println("Resultant Angle: "+resultant_angle);
                 break;
-            case 7:
+            case 8:
                 Divergence div = new Divergence();
                 div.display();
         }
