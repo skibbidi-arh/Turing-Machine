@@ -1,13 +1,14 @@
 package Display;
 
 import EquationClasses.Matrix;
+import EquationClasses.TrigonoValueError;
 
 import java.util.Scanner;
 
 public class Display {
     public Display() {}
 
-    public void display() {
+    public void display() throws TrigonoValueError {
         Scanner in = new Scanner(System.in);
 
         System.out.println("What Do You Want To Do?");

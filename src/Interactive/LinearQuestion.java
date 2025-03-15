@@ -16,12 +16,13 @@ public class LinearQuestion {
         matrix_gen.array_initialization();
     }
     public void generateLinearQuestion() {
-        int option = rand.nextInt(1);
-        int random= rand.nextInt(2,4);
-        matrix_gen.setVar_num(random);
+        int option=rand.nextInt(2);
+        int random;
         switch (option) {
             case 0:
                 System.out.println("Solve the Linear Equation");
+                random = rand.nextInt(2,4);
+                matrix_gen.setVar_num(random);
                 matrix_gen.array_initialization();
                 m.setMatrix(matrix_gen.getVariable_matrix());
                 mAns.setMatrix(matrix_gen.getAnswer_matrix());

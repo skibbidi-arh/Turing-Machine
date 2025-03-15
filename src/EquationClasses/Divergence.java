@@ -42,8 +42,10 @@ public class Divergence {
             eqn[2]=power2;
             eqnX = PartialDiff.dX(eqn);
             this.i += Functions.power(x, eqnX[1]) * eqnX[0] * Functions.power(y, eqnX[2]);
+            double i2= eqnX[0] * Functions.power(z, eqnX[3]) * Functions.power(x, eqnX[1]);
             eqnY = PartialDiff.dY(eqn);
             this.j += eqnY[0] * Functions.power(y, eqnY[2]) * Functions.power(x, eqnY[1]);
+            double j2=eqnY[0] * Functions.power(y, eqnY[2]) * Functions.power(x, eqnY[1]);
         }
         else if(s.equals("yz"))
         {
@@ -56,12 +58,15 @@ public class Divergence {
         }
         else if(s.equals("zx"))
         {
-            eqn[1]=power1;
-            eqn[3]=power2;
+            eqn[1]=power2;
+            eqn[3]=power1;
             eqnZ = PartialDiff.dZ(eqn);
+            double k1= Functions.power(z, eqnZ[3]) * eqnZ[0] * Functions.power(x, eqnZ[1]);
             this.k += Functions.power(z, eqnZ[3]) * eqnZ[0] * Functions.power(x, eqnZ[1]);
             eqnX = PartialDiff.dX(eqn);
+            double i1= eqnX[0] * Functions.power(z, eqnX[3]) * Functions.power(x, eqnX[1]);
             this.i += eqnX[0] * Functions.power(z, eqnX[3]) * Functions.power(x, eqnX[1]);
+
         }
     }
 

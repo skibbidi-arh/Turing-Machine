@@ -17,12 +17,15 @@ public class LinearGraph {
         this.x_index = x_index;
         this.y_index = y_index;
         this.constant = constant;
+        this.findrange(x_index,y_index,constant);
+        this.create_Empty_graph();
+        this.create_axis();
        // System.out.println(x_index+" "+y_index+" "+constant);
         this.findrange(x_index, y_index, constant);
 
     }
     public  void findrange(int x_cof,int y_cof,int constant) {
-        int range = 20;
+        int range = 60;
         for(int i=-7;i<=7;i+=1) {
             int x = (constant + y_cof * i) / x_cof;
             if(x<0) {x*=-1;}
@@ -52,7 +55,7 @@ public class LinearGraph {
         for(i = axis - 1; i >= 0; --i) {
             arr[i][axis/2] = '.';
         }
-        this.plot_points(x_index,y_index,constant);
+        //this.plot_points(x_index,y_index,constant);
     }
     public void plot_points(int x_index,int y_index,int constant) {
         this.range_map = new int[axis+1];
