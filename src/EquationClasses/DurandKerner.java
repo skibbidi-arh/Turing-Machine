@@ -5,28 +5,28 @@ import java.util.Scanner;
 public class DurandKerner {
     Scanner sc = new Scanner(System.in);
 
-    public EquationClasses.Complex[] durandKerner(double[] coefficients, double tolerance, int maxIterations) {
+    public Complex[] durandKerner(double[] coefficients, double tolerance, int maxIterations) {
         int n = coefficients.length - 1;
-        EquationClasses.Complex[] roots = new EquationClasses.Complex[n];
+        Complex[] roots = new Complex[n];
 
         // Improved initial root placement with slight perturbation
         for (int k = 0; k < n; k++) {
             double angle = 2 * Math.PI * k / n;
-            roots[k] = new EquationClasses.Complex(Math.cos(angle) * 1.1, Math.sin(angle) * 1.1);
+            roots[k] = new Complex(Math.cos(angle) * 1.1, Math.sin(angle) * 1.1);
         }
 
         for (int iteration = 0; iteration < maxIterations; iteration++) {
             boolean converged = true;
-            EquationClasses.Complex[] newRoots = new EquationClasses.Complex[n];
+            Complex[] newRoots = new Complex[n];
 
             for (int k = 0; k < n; k++) {
-                EquationClasses.Complex numerator = evaluatePolynomial(coefficients, roots[k]);
-                EquationClasses.Complex denominator = new EquationClasses.Complex(1, 0);
+                Complex numerator = evaluatePolynomial(coefficients, roots[k]);
+                Complex denominator = new Complex(1, 0);
 
                 for (int j = 0; j < n; j++) {
                     if (j != k) {
-                        EquationClasses.Complex diff = roots[k].subtract(roots[j]);
-                        denominator = denominator.multiply(diff.add(new EquationClasses.Complex(1e-12, 0))); // Prevent division by zero
+                        Complex diff = roots[k].subtract(roots[j]);
+                        denominator = denominator.multiply(diff.add(new Complex(1e-12, 0))); // Prevent division by zero
                     }
                 }
 
@@ -40,7 +40,7 @@ public class DurandKerner {
             if (converged) {
                 for (int k = 0; k < n; k++) {
                     if (Math.abs(newRoots[k].imag) < 1e-8) {
-                        newRoots[k] = new EquationClasses.Complex(newRoots[k].real, 0);
+                        newRoots[k] = new Complex(newRoots[k].real, 0);
                     }
                 }
                 return newRoots;
@@ -52,10 +52,10 @@ public class DurandKerner {
         return roots;
     }
 
-    private static EquationClasses.Complex evaluatePolynomial(double[] coefficients, EquationClasses.Complex x) {
-        EquationClasses.Complex result = new EquationClasses.Complex(coefficients[0], 0);
+    private static Complex evaluatePolynomial(double[] coefficients, Complex x) {
+        Complex result = new Complex(coefficients[0], 0);
         for (int i = 1; i < coefficients.length; i++) {
-            result = result.multiply(x).add(new EquationClasses.Complex(coefficients[i], 0));
+            result = result.multiply(x).add(new Complex(coefficients[i], 0));
         }
         return result;
     }
@@ -70,10 +70,10 @@ public class DurandKerner {
         System.out.println("Enter the constant:");
         coefficients[n - 1] = sc.nextDouble();
 
-        EquationClasses.Complex[] roots = durandKerner(coefficients, 1e-12, 1000);
+        Complex[] roots = durandKerner(coefficients, 1e-12, 1000);
 
         System.out.println("Roots found:");
-        for (EquationClasses.Complex root : roots) {
+        for (Complex root : roots) {
             System.out.println(root);
         }
     }

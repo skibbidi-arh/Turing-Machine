@@ -18,7 +18,7 @@ public class StrassenMultiply {
         double[][] A= matrix1.getMatrix();
         double[][] B= matrix2.getMatrix();
 
-        int maxSize = EquationClasses.Functions.max(EquationClasses.Functions.max(rowsA, colsA), EquationClasses.Functions.max(rowsB, colsB));
+        int maxSize =Functions.max(Functions.max(rowsA, colsA),Functions.max(rowsB, colsB));
         int paddedSize = nextPowerOfTwo(maxSize);
 
         double[][] paddedA = padMatrix(A, paddedSize);

@@ -14,7 +14,7 @@ public class LinearSolver {
         EquationClasses.StrassenMultiply str= new EquationClasses.StrassenMultiply(inm.getMatrix(),resultant);
         double[][] C= str.Mul();
         for (int i = 0; i < C[0].length; i++) {
-            C[0][i] = EquationClasses.Functions.precisionController(C[0][i]);
+            C[0][i] = Functions.precisionController(C[0][i]);
         }
         return C;
     }
