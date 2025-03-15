@@ -19,7 +19,7 @@ public class Vector1 {
 
     public void inputVector(int dimensions){
         double[] temp= new double[3];
-            System.out.println("Enter the coeffiencts of the vector");
+        System.out.println("Enter the coeffiencts of the vector");
         for (int i = 0; i < dimensions; i++) {
             temp[i] = sc.nextDouble();
         }

@@ -1,12 +1,14 @@
 package EquationClasses;
 
+import Graph.LinearGraph;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LinearRegex {
-    static int n;
-    static int arr[][];
+    private int n;
+    private int arr[][];
     public void take(int x) {
         int i=0;
         Scanner string_input = new Scanner(System.in);
@@ -31,8 +33,19 @@ public class LinearRegex {
         if(validarray){
             result();
         }
+        if(x<=2)
+        {
+//            System.out.println(arr[0][0]+" "+arr[0][1]+" "+arr[0][2]);
+//            System.out.println(arr[1][0]+" "+arr[1][1]+" "+arr[1][2]);
+//            LinearGraph lr= new LinearGraph();
+//            lr.create_Empty_graph();
+//            lr.plot_points(arr[0][0],arr[0][1],arr[0][2]);
+////            lr.plot_points(arr[1][0],arr[1][1],arr[1][2]);
+//            lr.Display_graph();
+
+        }
     }
-    public static int Pattern_Matcher(String eqn){
+    public int Pattern_Matcher(String eqn){
         Pattern pattern = Pattern.compile("^([-+]{0,1}[\\d-]+(?:\\.\\d+)?)[a-zA-Z]{1,10}(?:\\s*([-+]?\\d+(?:\\.\\d+)?)[a-zA-Z]{1,10})*\\s*=\\s*([-+]?\\d+(?:\\.\\d+)?)?[+ - *]{0}$");
         Matcher matcher_2 = pattern.matcher(eqn);
         int isvalid = -1;
@@ -46,7 +59,7 @@ public class LinearRegex {
             return isvalid;
         }
     }
-    public static void Coefficient_Extractor(String eqn,int i){
+    public void Coefficient_Extractor(String eqn,int i){
         Pattern pattern_2= Pattern.compile("(-?\\d+)");
         Matcher matcher = pattern_2.matcher(eqn);
         int j=0;
@@ -57,7 +70,7 @@ public class LinearRegex {
             j++;
         }
     }
-    public static void result(){
+    public void result(){
         double[][] coefficient_matrix = new double[n][n];
         double[][] result_matrix = new double[n][1];
         for(int i=0;i<n;i++){
