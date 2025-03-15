@@ -1,4 +1,4 @@
-package src.EquationClasses;
+package EquationClasses;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -7,13 +7,12 @@ import java.util.regex.Pattern;
 public class LinearRegex {
     static int n;
     static int arr[][];
-    public void take() {
+    public void take(int x) {
         int i=0;
         Scanner string_input = new Scanner(System.in);
-        Scanner number_input = new Scanner(System.in);
         System.out.println("How many Unknowns do you want to keep ??");
         System.out.print("=> ");
-        n = number_input.nextInt();
+        n= x;
         arr = new int[n][n+1];
         boolean validarray=false;
         while (i<n){
@@ -48,15 +47,15 @@ public class LinearRegex {
         }
     }
     public static void Coefficient_Extractor(String eqn,int i){
-            Pattern pattern_2= Pattern.compile("(-?\\d+)");
-            Matcher matcher = pattern_2.matcher(eqn);
-            int j=0;
-            while (matcher.find()) {
-                int in = Integer.parseInt(matcher.group(1));
+        Pattern pattern_2= Pattern.compile("(-?\\d+)");
+        Matcher matcher = pattern_2.matcher(eqn);
+        int j=0;
+        while (matcher.find()) {
+            int in = Integer.parseInt(matcher.group(1));
 
-                arr[i][j] = in;
-                j++;
-            }
+            arr[i][j] = in;
+            j++;
+        }
     }
     public static void result(){
         double[][] coefficient_matrix = new double[n][n];

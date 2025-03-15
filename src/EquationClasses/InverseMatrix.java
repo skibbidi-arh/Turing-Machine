@@ -1,4 +1,4 @@
-package src.EquationClasses;
+package EquationClasses;
 
 public class InverseMatrix {
     private Matrix matrix;

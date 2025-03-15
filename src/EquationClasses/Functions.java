@@ -1,4 +1,4 @@
-package src.EquationClasses;
+package EquationClasses;
 public class Functions {
 
     public static int max(int a, int b) {
@@ -144,6 +144,10 @@ public class Functions {
         {
             return x;
         }
+    }
+    public static double PI()
+    {
+        return 3.14159265358979323846264338327950288419716939937510;
     }
 
 }

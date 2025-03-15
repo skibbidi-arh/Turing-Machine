@@ -1,4 +1,4 @@
-package source;
+package src.EquationClasses;
 import java.io.*;
 import java.util.Scanner;
 
@@ -19,6 +19,9 @@ public class FofXinput {
                 case "inverse trigonometry":
                     arcTrigonometry();
                     break;
+                    default:
+                        System.out.println("Invalid input");
+                        Fofx1();
 
         };
 
@@ -30,7 +33,8 @@ public class FofXinput {
         if (yn.equals("y")) {
             trigowithxmultiplied();
 
-        } else {
+        }
+        sc.nextLine();
             //System.out.println("sin, cos , tan, csc, sec, cot?");
             System.out.println("Whats inside? x, x^2 ar x^3 ?");
             String v = sc.nextLine();
@@ -45,11 +49,14 @@ public class FofXinput {
                 case "x^3":
                     x3();
                     break;
+                    default:
+                        System.out.println("Invalid input");
+                        trigonometry();
 
             }
 
 
-        }
+
     }
 
     private void  trigowithxmultiplied(){
@@ -57,14 +64,17 @@ public class FofXinput {
         String v = sc.nextLine();
         switch (v) {
             case "x":
-                xmultiplied();
+                xmultipliedWithTrigo();
                 break;
                 case "x^2":
-                    x2multiplied();
+                    x2multipliedwithtrigo();
                     break;
                     case "x^3":
-                        x3multiplied();
+                        x3multipliedwithtrigo();
                         break;
+                        default:
+                            System.out.println("Invalid input");
+                            trigowithxmultiplied();
         }
 
 
@@ -72,17 +82,88 @@ public class FofXinput {
     }
 
 
-    private void xmultiplied(){
+    private void xmultipliedWithTrigo(){
+
+
+
+        System.out.println("Whats inside trigonometric  function?- x, x^2 or x^3");
+        String c = sc.nextLine();
+        //sc.nextLine();
+
+        System.out.println("Enter the cofficient");
+        int v = sc.nextInt();
+        switch (c) {
+            case "x":
+                b[64]=v;
+                break;
+                case "x^2":
+                    b[63]=v;
+                    break;
+                    case "x^3":
+                        b[62]=v;
+                        break;
+                        default:
+                            System.out.println("Invalid input");
+                            xmultipliedWithTrigo();
+
+
+        }
 
 
 
     }
 
-    private void x2multiplied(){
+    private void x2multipliedwithtrigo(){
+
+        System.out.println("Whats inside trigonometric  function?- x, x^2 or x^3");
+        String c = sc.nextLine();
+        sc.nextLine();
+
+        System.out.println("Enter the cofficient");
+        int v = sc.nextInt();
+        switch (c) {
+            case "x":
+                b[57]=v;
+                break;
+            case "x^2":
+                b[56]=v;
+                break;
+            case "x^3":
+                b[55]=v;
+                break;
+                default:
+                    System.out.println("Invalid input");
+                    x2multipliedwithtrigo();
+
+
+        }
 
     }
 
-    private void x3multiplied(){
+    private void x3multipliedwithtrigo(){
+
+        System.out.println("Whats inside trigonometric  function?- x, x^2 or x^3");
+        String c = sc.nextLine();
+        sc.nextLine();
+
+        System.out.println("Enter the cofficient");
+        int v = sc.nextInt();
+        switch (c) {
+            case "x":
+                b[50]=v;
+                break;
+            case "x^2":
+                b[49]=v;
+                break;
+            case "x^3":
+                b[48]=v;
+                break;
+                default:
+                    System.out.println("Invalid input");
+                    x3multipliedwithtrigo();
+
+
+        }
 
 
     }
