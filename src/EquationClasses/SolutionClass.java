@@ -1,4 +1,6 @@
-package src.EquationClasses;
+package EquationClasses;
+import EquationClasses.TrigonoValueError;
+
 import java.util.*;
 
 public class SolutionClass {
@@ -42,7 +44,7 @@ public class SolutionClass {
     void linear() throws TrigonoValueError {
 
         LinearRegex lr = new LinearRegex();
-        lr.take();
+       // lr.take();
         System.out.println("1- do linear solve again");
         System.out.println("2 - go back");
         int s = sc.nextInt();
@@ -171,7 +173,7 @@ public class SolutionClass {
 
     void pol() throws TrigonoValueError {
         DurandKerner dk = new DurandKerner();
-        dk.solve();
+      //  dk.solve();
         System.out.println();
         System.out.println("1- Solve another");
         System.out.println("2- Go back");

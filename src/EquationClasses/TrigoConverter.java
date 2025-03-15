@@ -1,4 +1,4 @@
-package src.EquationClasses;
+package EquationClasses;
 
 import java.util.Scanner;
 

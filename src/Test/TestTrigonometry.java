@@ -1,6 +1,6 @@
-package src.Test;
-import src.EquationClasses.Trigonometry;
-import src.EquationClasses.TrigonoValueError;
+package Test;
+import EquationClasses.Trigonometry;
+import EquationClasses.TrigonoValueError;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

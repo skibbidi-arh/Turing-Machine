@@ -1,8 +1,8 @@
-package src.EquationClasses;
+package Graph;
 
 import java.util.Scanner;
 
-public class TrigoGraph {
+public class TrigonometricGraph {
     public  void plotGraph(String equation) {
         int width = 100;
         int height = 20;
@@ -82,3 +82,4 @@ public class TrigoGraph {
         scanner.close();
     }
 }
+
