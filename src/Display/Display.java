@@ -1,5 +1,6 @@
 package Display;
 
+import EquationClasses.BrentsMethod;
 import EquationClasses.Matrix;
 import EquationClasses.TrigonoValueError;
 
@@ -42,7 +43,11 @@ public class Display {
                 polynomial.displayPolynomial();
             }
             else if(choice2 == 3) {
-
+                System.out.println("Input equation:");
+                System.out.println("Equation should be like in a for f(x)=0 but you dont have to write the part (=0), just input f(x)");
+                String s= in.next();
+                BrentsMethod br= new BrentsMethod(s);
+                br.answerPrint();
             }
             else if(choice2 == 4) {
                 MatrixDisplay matrixdisplay = new MatrixDisplay();

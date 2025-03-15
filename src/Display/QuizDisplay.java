@@ -1,6 +1,5 @@
 package Display;
 
-import EquationClasses.Matrix;
 import EquationClasses.TrigonoValueError;
 import Interactive.LinearQuestion;
 import Interactive.ResultMatcher;

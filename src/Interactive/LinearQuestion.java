@@ -39,7 +39,7 @@ public class LinearQuestion {
                 mVal.setMatrix(matrix_gen.getAnswer_matrix());
                 this.printLinearEquation(m,mVal);
                 LUdecompose ld = new LUdecompose(m);
-                rm.LinearChecker(ld.getupMatrix(),1);
+                rm.LinearChecker(ld.getUpperMatrix(),1);
                 break;
             case 2:
                 System.out.println("Find Upper Matix of the Equation");
@@ -49,7 +49,7 @@ public class LinearQuestion {
                 mVal.setMatrix(matrix_gen.getAnswer_matrix());
                 this.printLinearEquation(m,mVal);
                 LUdecompose ld2 = new LUdecompose(m);
-                rm.LinearChecker(ld2.getupMatrix(),1);
+                rm.LinearChecker(ld2.getUpperMatrix(),1);
                 break;
         }
 
