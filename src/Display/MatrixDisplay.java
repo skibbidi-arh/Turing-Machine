@@ -17,6 +17,8 @@ public class MatrixDisplay {
         System.out.println("5.Inverse Matrix: ");
         System.out.println("6.LU Decomposition: ");
         System.out.println("7.Elemination Matrix: ");
+        System.out.println("8. Find RREF form:- ");
+        System.out.println("9. Find Echelon form:-");
         System.out.println("Give Input: ");
         int choice = sc.nextInt();
         int I,J;

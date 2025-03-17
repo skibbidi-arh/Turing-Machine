@@ -18,7 +18,6 @@ public class NullSpace {
         boolean[] pivotColumns = new boolean[cols];
         Arrays.fill(pivotColumns, false);
 
-        // Identify pivot columns
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (rrefMatrix[i][j] == 1) {
@@ -28,7 +27,6 @@ public class NullSpace {
             }
         }
 
-        // Construct null space vectors
         for (int freeVar = 0; freeVar < cols; freeVar++) {
             if (!pivotColumns[freeVar]) {
                 double[] nullVector = new double[cols];
