@@ -44,4 +44,32 @@ public class NullSpace {
         }
         return nullSpaceVectors;
     }
+
+    public static void printNullSpace(List<double[]> nullSpaceVectors) {
+        if (nullSpaceVectors == null || nullSpaceVectors.isEmpty()) {
+            System.out.println("The null space is empty.");
+            return;
+        }
+
+        System.out.println("Null Space Vectors:");
+        for (double[] vector : nullSpaceVectors) {
+            printArray(vector);
+        }
+    }
+
+    private static void printArray(double[] array) {
+        if (array == null) {
+            System.out.println("null");
+            return;
+        }
+
+        System.out.print("[");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
 }

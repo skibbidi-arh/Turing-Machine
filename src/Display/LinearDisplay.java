@@ -1,9 +1,6 @@
 package Display;
 
-import EquationClasses.CompleteSolve;
-import EquationClasses.LinearRegex;
-import EquationClasses.Matrix;
-import EquationClasses.ParticularSolve;
+import EquationClasses.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -73,11 +70,27 @@ public class LinearDisplay {
                     rhsc[i]= sc.nextDouble();
                 }
                 List<double[]> answerc= cm.completeSolution(mm.getMatrix(),rhsc);
-
-
-
-
-
+                cm.printSolutions(answerc);
+            case 4:
+                System.out.println("Input number of rows and columns in coefficient matrix:- ");
+                rows= sc.nextInt();
+                columns = sc.nextInt();
+                System.out.println("Input Coefficient Matrix: ");
+                Matrix mm1= new Matrix(rows,columns);
+                NullSpace nls= new NullSpace();
+                List<double[]> ans= nls.nullSpace(mm1);
+                nls.printNullSpace(ans);
+                break;
+            case 5:
+                System.out.println("Input number of rows and columns in coefficient matrix:- ");
+                rows= sc.nextInt();
+                columns = sc.nextInt();
+                System.out.println("Input Coefficient Matrix: ");
+                Matrix mm2= new Matrix(rows,columns);
+                ColumnSpace cs= new ColumnSpace();
+                List<double[]> ans2= cs.columnSpace(mm2);
+                cs.printColumnSpace(ans2);
+                break;
         }
 
     }

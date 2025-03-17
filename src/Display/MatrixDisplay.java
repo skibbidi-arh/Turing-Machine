@@ -17,8 +17,8 @@ public class MatrixDisplay {
         System.out.println("5.Inverse Matrix: ");
         System.out.println("6.LU Decomposition: ");
         System.out.println("7.Elemination Matrix: ");
-        System.out.println("8. Find RREF form:- ");
-        System.out.println("9. Find Echelon form:-");
+        System.out.println("8. Find Echelon form:- ");
+        System.out.println("9. Find RREF form:-");
         System.out.println("Give Input: ");
         int choice = sc.nextInt();
         int I,J;
@@ -107,6 +107,27 @@ public class MatrixDisplay {
                 Matrix matrix3 = new Matrix(I,I);
                 EliminationMatrix elm= new EliminationMatrix(matrix3);
                 elm.printEliminationMatrices();
+                break;
+            case 8:
+                System.out.println("Enter Dimentions of the Matrix: ");
+                I = sc.nextInt();
+                J = sc.nextInt();
+                System.out.println("Enter values for Matrix: ");
+                Matrix matrix4 = new Matrix(I,J);
+                EchelonForm ef= new EchelonForm();
+                Matrix answer= ef.echelonForm(matrix4);
+                answer.printMatrix();
+                break;
+            case 9:
+                System.out.println("Enter Dimentions of the Matrix: ");
+                I = sc.nextInt();
+                J = sc.nextInt();
+                System.out.println("Enter values for Matrix: ");
+                Matrix matrix5 = new Matrix(I,J);
+                RRef rRef= new RRef();
+                Matrix rf= rRef.rref(matrix5);
+                rf.printMatrix();
+                break;
         }
 
     }
