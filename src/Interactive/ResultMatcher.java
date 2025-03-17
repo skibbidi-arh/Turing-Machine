@@ -55,9 +55,7 @@ public class ResultMatcher {
     }
     public void LinearChecker(Matrix ans,int question_no){
         Matrix m = new Matrix(ans.getRows(),ans.getCols());
-        for(int i=0;i<ans.getRows();i++){
-            m.getMatrix()[i][0]= sc.nextDouble();
-        }
+
         if(m.getMatrix()==ans.getMatrix())
         {
             marks+=1;

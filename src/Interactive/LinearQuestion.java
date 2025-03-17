@@ -7,19 +7,17 @@ import java.util.Random;
 
 public class LinearQuestion {
     Random rand = new Random();
-    Matrix_Gen matrix_gen= new Matrix_Gen(rand.nextInt(2,4));
-    Matrix m= new Matrix(matrix_gen.getVariable_matrix());
-    Matrix mVal= new Matrix(matrix_gen.getValue_matrix());
-    Matrix mAns= new Matrix(matrix_gen.getAnswer_matrix());
-    LUdecompose lud = new LUdecompose(m);
     ResultMatcher rm= ResultMatcher.getMatcher();
     public LinearQuestion(){
-        matrix_gen.array_initialization();
     }
     public void generateLinearQuestion() {
-        int option = rand.nextInt(1);
-        int random= rand.nextInt(2,4);
-        matrix_gen.setVar_num(random);
+        int option = rand.nextInt(3);
+        int random= rand.nextInt(2,5);
+        Matrix_Gen matrix_gen= new Matrix_Gen(random);
+        Matrix m= new Matrix(matrix_gen.getVariable_matrix());
+        Matrix mVal= new Matrix(matrix_gen.getValue_matrix());
+        Matrix mAns= new Matrix(matrix_gen.getAnswer_matrix());
+        LUdecompose lud = new LUdecompose(m);
         switch (option) {
             case 0:
                 System.out.println("Solve the Linear Equation");

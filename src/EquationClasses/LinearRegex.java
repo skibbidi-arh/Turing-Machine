@@ -12,7 +12,7 @@ public class LinearRegex {
     public void take(int x) {
         int i=0;
         Scanner string_input = new Scanner(System.in);
-        System.out.println("How many Unknowns do you want to keep ??");
+        System.out.println("How many equations do you want to keep ??");
         System.out.print("=> ");
         n= x;
         arr = new int[n][n+1];
