@@ -4,21 +4,20 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class StoreData {
-    public void Store() {
+    public void Store(int num, String topic, String name,int quiznumber) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
+        //System.out.print("Enter your name: ");
+       // String name = scanner.nextLine();
 
-        System.out.print("Enter your number: ");
-        String number = scanner.nextLine();
+       // System.out.print("Enter your number: ");
+        String number = Integer.toString(num);
+        String quiznum = Integer.toString(quiznumber);
 
-        System.out.print("Enter the name of the topic: ");
-        String topic = scanner.nextLine();
 
         String date = LocalDate.now().toString();
 
-        String data = name + "," + number + "," + topic + "," + date;
+        String data = name + "," + number + "," + topic + "," + date + "," + quiznum;
 
         try (FileWriter writer = new FileWriter("stored_data.txt", true)) {
             writer.write(data + "\n");
@@ -38,7 +37,7 @@ public class StoreData {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts[0].equals(name)) {
-                    System.out.println("Topic: " + parts[2] + " || Marks: " + parts[1] + " || Date: " + parts[3]);
+                    System.out.println("Topic: " + parts[2] + " || Marks: " + parts[1] + " || Date: " + parts[3]+ " || Quiz no: "+parts[4]);
                     found = true;
                 }
             }
@@ -57,6 +56,12 @@ public class StoreData {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
+
+                // Ensure the line has the expected number of elements
+                if (parts.length < 5) { // Expecting at least 5 elements (name, number, topic, date, quiznum)
+                    continue; // Skip this line
+                }
+
                 if (parts[2].equals(topic)) {
                     records.add(parts);
                 }
@@ -75,8 +80,12 @@ public class StoreData {
         } catch (IOException e) {
             System.out.println("An error occurred while reading records.");
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format in file. Check if marks are properly stored as numbers.");
+            e.printStackTrace();
         }
     }
+
 
     public void calculateAverageMarks(String name, String topic) {
         int totalMarks = 0, count = 0;

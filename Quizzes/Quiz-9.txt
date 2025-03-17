@@ -1,0 +1,12 @@
+Linear Algebra Quiz
+____________________
+
+Consider the matrix A as shown below.
+
+[-3  4  2]
+[ 6  3  1]
+[ 4 -7 -8]
+
+a). Find the inverse of the matrix
+b). Determinant of the matrix
+c). Determinant of the inverse.

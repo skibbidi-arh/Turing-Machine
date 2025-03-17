@@ -4,8 +4,10 @@ package Test;
 
 import EquationClasses.LogarithmCalculator;
 import Graph.TrigonometricGraph;
+import SaveFiles.QuestionSave;
 import SaveFiles.QuizNumber;
 import SaveFiles.QuizWriter;
+import SaveFiles.StoreData;
 
 public class TestUtsho {
 
@@ -22,13 +24,12 @@ public class TestUtsho {
                 "c). Determinant of the inverse.";
 
 
+        QuestionSave qs= new QuestionSave();
 
-        QuizNumber quizNumber = new QuizNumber();
-        quizNumber.quizNumberUpdate();
-        int num = quizNumber.getLatestQuizNumber();
-        QuizWriter qr = new QuizWriter();
-        qr.WriteQuizQuestions(quizContent,num);
-        qr.readQuiz(num);
+
+        StoreData sd= new StoreData();
+       // sd.searchRecords("Ahir");
+        sd.showLeaderboard("Linear Algebra");
 
 
 
