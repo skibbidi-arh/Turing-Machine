@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 public class DurandKerner {
     Scanner sc = new Scanner(System.in);
+    double tolerance= 1e-12;
+    double maxIterations= 1000;
 
-    public Complex[] durandKerner(double[] coefficients, double tolerance, int maxIterations) {
+    public Complex[] durandKerner(double[] coefficients) {
         int n = coefficients.length - 1;
         Complex[] roots = new Complex[n];
 
@@ -70,7 +72,7 @@ public class DurandKerner {
         System.out.println("Enter the constant:");
         coefficients[n - 1] = sc.nextDouble();
 
-        Complex[] roots = durandKerner(coefficients, 1e-12, 1000);
+        Complex[] roots = durandKerner(coefficients);
 
         System.out.println("Roots found:");
         for (Complex root : roots) {
