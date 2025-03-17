@@ -3,10 +3,14 @@ package Interactive;
 import EquationClasses.Matrix;
 import EquationClasses.Vector1;
 
+import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class ResultMatcher {
+    String Question;
+    String Answer;
     Scanner sc = new Scanner(System.in);
     private int[] wronganswers=new int[15];
     private int marks=0;
@@ -54,9 +58,9 @@ public class ResultMatcher {
     }
     public void LinearChecker(Matrix ans,int question_no){
         Matrix m = new Matrix(ans.getRows(),ans.getCols());
-        for(int i=0;i<ans.getRows();i++){
-            m.getMatrix()[i][0]= sc.nextDouble();
-        }
+        //pt.Question=arrayToStringWithIndents(m.getMatrix());
+       Question=arrayToStringWithIndents(m.getMatrix());
+       Answer = matrixToString(m.getMatrix());
         if(m.getMatrix()==ans.getMatrix())
         {
             marks+=1;
@@ -72,4 +76,34 @@ public class ResultMatcher {
     public int[] getWronganswers() {
         return wronganswers;
     }
+    public  String arrayToStringWithIndents(double[][] array) {
+        StringBuilder result = new StringBuilder();
+        for (double[] row : array) {
+            for (int i = 0; i < row.length - 1; i++) { //Exclude the last element for now
+                result.append(row[i]).append(" ");
+            }
+            result.append("= ").append(row[row.length - 1]).append("\n"); // Add equals and the last element
+        }
+        return result.toString();
+    }
+    public String returnQuestion(){
+            return Question;
+    }
+    public String returnAnswer(){
+        return Answer;
+    }
+    public static String matrixToString(double[][] matrix) {
+        StringBuilder result = new StringBuilder();
+        for (double[] row : matrix) {
+            for (int i = 0; i < row.length; i++) {
+                result.append(row[i]);
+                if (i < row.length - 1) {
+                    result.append(" "); // Add space between elements in a row
+                }
+            }
+            result.append("\n"); // Add newline after each row
+        }
+        return result.toString();
+    }
+
 }

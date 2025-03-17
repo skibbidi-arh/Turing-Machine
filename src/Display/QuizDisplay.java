@@ -3,6 +3,7 @@ package Display;
 import EquationClasses.Matrix;
 import EquationClasses.TrigonoValueError;
 import Interactive.LinearQuestion;
+import Interactive.PrintToFile;
 import Interactive.ResultMatcher;
 import Interactive.VectorQuestion;
 
@@ -25,9 +26,13 @@ public class QuizDisplay {
 
                 for(int i=0;i<3;i++)
                 {
-                    LinearQuestion lq = new LinearQuestion();
+                    LinearQuestion lq = new LinearQuestion(i+1);
                     lq.generateLinearQuestion();
                 }
+                ResultMatcher r= ResultMatcher.getMatcher();
+                PrintToFile p=PrintToFile.getInstance();
+                p.getmarks(r.getMarks());
+                p.printData();
                 break;
             case 2:
                 break;

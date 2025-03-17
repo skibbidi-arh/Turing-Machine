@@ -3,23 +3,26 @@ package Interactive;
 import EquationClasses.LUdecompose;
 import EquationClasses.Matrix;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class LinearQuestion {
     Random rand = new Random();
-    Matrix_Gen matrix_gen= new Matrix_Gen(rand.nextInt(2,4));
-    Matrix m= new Matrix(matrix_gen.getVariable_matrix());
-    Matrix mVal= new Matrix(matrix_gen.getValue_matrix());
-    Matrix mAns= new Matrix(matrix_gen.getAnswer_matrix());
-    LUdecompose lud = new LUdecompose(m);
-    ResultMatcher rm= ResultMatcher.getMatcher();
-    public LinearQuestion(){
-        matrix_gen.array_initialization();
+    PrintToFile pt=PrintToFile.getInstance();
+
+    int question_no;
+    public LinearQuestion(int question_no) {
+        this.question_no =question_no;
     }
     public void generateLinearQuestion() {
-        int option = rand.nextInt(1);
-        int random= rand.nextInt(2,4);
-        matrix_gen.setVar_num(random);
+        int option = rand.nextInt(3);
+        int random= rand.nextInt(2,5);
+        Matrix_Gen matrix_gen= new Matrix_Gen(random);
+        Matrix m= new Matrix(matrix_gen.getVariable_matrix());
+        Matrix mVal= new Matrix(matrix_gen.getValue_matrix());
+        Matrix mAns= new Matrix(matrix_gen.getAnswer_matrix());
+        LUdecompose lud = new LUdecompose(m);
+        ResultMatcher rm= ResultMatcher.getMatcher();
         switch (option) {
             case 0:
                 System.out.println("Solve the Linear Equation");
@@ -29,6 +32,9 @@ public class LinearQuestion {
                 mVal.setMatrix(matrix_gen.getAnswer_matrix());
                 this.printLinearEquation(m,mVal);
                 rm.LinearChecker(mAns,1);
+                double[][] xs= new double[m.getRows()][m.getCols()+1];
+                String Question = rm.arrayToStringWithIndents(xs);
+                pt.getdata(Question,rm.returnAnswer());
 
             break;
             case 1:
