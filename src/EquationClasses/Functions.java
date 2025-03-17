@@ -148,4 +148,15 @@ public class Functions {
             if (!swapped) break;
         }
     }
+    public static double[][] deepCopy(double[][] a) {
+        int rows = a.length;
+        int cols = a[0].length;
+        double[][] copy = new double[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                copy[i][j] = a[i][j];
+            }
+        }
+        return copy;
+    }
 }
