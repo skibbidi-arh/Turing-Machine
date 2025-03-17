@@ -62,7 +62,7 @@ public class DurandKerner {
         return result;
     }
 
-    public void solve(int n) {
+    public Complex[] solve(int n) {
         n = n + 1;
         double[] coefficients = new double[n];
         for (int k = 0; k < n - 1; k++) {
@@ -74,9 +74,18 @@ public class DurandKerner {
 
         Complex[] roots = durandKerner(coefficients);
 
+        return roots;
+
+    }
+    public void printRoots(Complex[] roots) {
         System.out.println("Roots found:");
         for (Complex root : roots) {
             System.out.println(root);
         }
+    }
+
+    public static void main(String[] args) {
+        DurandKerner d = new DurandKerner();
+        d.solve(3);
     }
 }

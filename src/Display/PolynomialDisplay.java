@@ -1,5 +1,6 @@
 package Display;
 
+import EquationClasses.Complex;
 import EquationClasses.DurandKerner;
 
 import java.util.Scanner;
@@ -24,6 +25,7 @@ public class PolynomialDisplay {
             }
         }
         DurandKerner durandKerner = new DurandKerner();
-        durandKerner.solve(highestPower);
+        Complex[] roots= durandKerner.solve(highestPower);
+
     }
 }

@@ -3,71 +3,62 @@ public class Functions {
 
     public static int max(int a, int b) {
 
-        if(a>b) return a;
+        if (a > b) return a;
         else return b;
     }
-    public static double absolute(double x)
-    {
-        if(x<0)
-        {
-            return x*(-1);
-        }
-        else
-        {
+
+    public static double absolute(double x) {
+        if (x < 0) {
+            return x * (-1);
+        } else {
             return x;
         }
     }
-    public static double power(double x, int y)
-    {
-        double ans=1;
-        for(int i=1;i<=y;i++)
-        {
-            ans=ans*x;
+
+    public static double power(double x, int y) {
+        double ans = 1;
+        for (int i = 1; i <= y; i++) {
+            ans = ans * x;
         }
         return ans;
     }
-    public static double squareRoot(double x)
-    {
-        if(x<0)
-        {
-            x= absolute(x);
+
+    public static double squareRoot(double x) {
+        if (x < 0) {
+            x = absolute(x);
         }
         double t;
-        double sqrtroot=x/2;
-        do
-        {
-            t=sqrtroot;
-            sqrtroot=(t+(x/t))/2;
+        double sqrtroot = x / 2;
+        do {
+            t = sqrtroot;
+            sqrtroot = (t + (x / t)) / 2;
         }
-        while((t-sqrtroot)!= 0);
+        while ((t - sqrtroot) != 0);
         return sqrtroot;
     }
+
     static double cuberoot(double number) {
-        double z= absolute(number);
-        boolean isNegative= false;
-        if(number<0)
-        {
-            isNegative=true;
+        double z = absolute(number);
+        boolean isNegative = false;
+        if (number < 0) {
+            isNegative = true;
         }
-        if(z!=(int)z)
-        {
+        if (z != (int) z) {
             return dubcuberoot(number);
-        }
-        else {
+        } else {
             int left = 1;
             int right = (int) z;
             int ans = 0;
             while (left <= right) {
 
-                int mid = left + (right-left) / 2;
+                int mid = left + (right - left) / 2;
                 if (mid * mid * mid == z) {
                     if (isNegative) {
-                        return (-1)*mid;
+                        return (-1) * mid;
                     } else {
                         return mid;
                     }
-                }
-                else if (mid * mid * mid < z) {
+                } else if (mid * mid * mid < z) {
                     left = mid + 1;
                     ans = mid;
                 } else {
@@ -75,9 +66,9 @@ public class Functions {
                 }
             }
             if (isNegative) {
-                ans= -ans;
+                ans = -ans;
             }
-            if (power(ans,3)== number) {
+            if (power(ans, 3) == number) {
                 return ans;
             } else {
                 return dubcuberoot(number);
@@ -87,7 +78,7 @@ public class Functions {
 
 
     public static double dubcuberoot(double number) {
-        double precision= 0.000000001;
+        double precision = 0.000000001;
         boolean isNegative = false;
         if (number < 0) {
             isNegative = true;
@@ -113,41 +104,48 @@ public class Functions {
             }
         }
 
-        if(isNegative)
-        {
+        if (isNegative) {
             return -mid;
-        }
-        else
-        {
+        } else {
             return mid;
         }
     }
+
     public static double ceiling(double number) {
-        if(number>(int) number)
-        {
-            return (int)number+1;
-        }
-        else
-        {
+        if (number > (int) number) {
+            return (int) number + 1;
+        } else {
             return number;
         }
     }
 
-    public static double precisionController(double x)
-    {
-        double controller= ceiling(x)-x;
-        if(controller<0.000001)
-        {
+    public static double precisionController(double x) {
+        double controller = ceiling(x) - x;
+        if (controller < 0.000001) {
             return ceiling(x);
-        }
-        else
-        {
+        } else {
             return x;
         }
     }
-    public static double PI()
-    {
+
+    public static double PI() {
         return 3.14159265358979323846264338327950288419716939937510;
     }
 
+    public static void bubbleSort(double[] arr) {
+        int n = arr.length;
+        boolean swapped;
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    double temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) break;
+        }
+    }
 }

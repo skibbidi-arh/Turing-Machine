@@ -1,5 +1,6 @@
 package Interactive;
 
+import EquationClasses.Functions;
 import EquationClasses.Matrix;
 import EquationClasses.Vector1;
 
@@ -67,6 +68,25 @@ public class ResultMatcher {
 
     public int getMarks() {
         return marks;
+    }
+
+    public void polAnswer(double[] roots, double[] answers,int question_no)
+    {
+        Functions.bubbleSort(answers);
+        boolean checker= true;
+        for(int i=0;i<answers.length;i++){
+            if(answers[i]==roots[i]){
+                checker=false;
+                break;
+            }
+        }
+        if(checker){
+            marks+=1;
+        }
+        else
+        {
+            wronganswers[question_no]=1;
+        }
     }
 
     public int[] getWronganswers() {
