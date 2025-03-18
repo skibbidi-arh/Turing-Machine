@@ -1,47 +1,42 @@
 package Interactive;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class PrintToFile {
-    private static PrintToFile ptf;
-    public String totaldata="";
-
-    private PrintToFile(){
+    String Question;
+    String Answer;
+    public PrintToFile(String Question,String Answer){
+           this.Question = Question;
+           this.Answer = Answer;
+    }
+    public PrintToFile() {
 
     }
+    public void printdata(PrintToFile pf) {
+        System.out.println(pf.Question);
+        System.out.println(pf.Answer);
 
-    public static PrintToFile getInstance(){
-        if(ptf == null){
-            ptf = new PrintToFile();
+    }
+    public String getData(){
+        return Question+"------------"+" \n"+Answer;
+    }
+    public  void writeStringToFile(String text, String filePath) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(text);
+            System.out.println("String successfully written to " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
         }
-        return ptf;
     }
 
-
-    String answer="";
-    String Question="";
-    int TotalMarks;
-    String QuestionType;
-    public  void getdata(String Question,String answer){
-       totaldata = totaldata+"\n"+Question;
-       totaldata = totaldata+"\n"+answer;
-
-    }
-    public void getmarks(int marks){
-        this.TotalMarks=marks;
-    }
-    public static void main(String[] args) {
-
-    }
-    public void printData(){
-        System.out.println(totaldata);
+    public void setAnswer(String answer) {
+        Answer = answer;
     }
 
-   public  String getTotaldata(){
-        return totaldata;
+    public void setQuestion(String question) {
+        Question = question;
     }
-
-    public  void flashData(){
-        totaldata="";
-    }
-
-
 }
+

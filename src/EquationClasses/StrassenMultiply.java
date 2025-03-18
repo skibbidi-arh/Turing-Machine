@@ -126,5 +126,14 @@ public class StrassenMultiply {
         return power;
     }
 
-
+    public static void main(String[] args) {
+        double[][] d= {{-18,0},{4,9}};
+        Matrix m = new Matrix(d);
+        double[][] d2 = {{5},{-12}};
+        Matrix m2 = new Matrix(d2);
+        StrassenMultiply str= new StrassenMultiply(m,m2);
+        double[][] m1= str.Mul();
+        Matrix m3 = new Matrix(m1);
+        m3.printMatrix();
+    }
 }
