@@ -42,8 +42,10 @@ public class Divergence {
             eqn[2]=power2;
             eqnX = PartialDiff.dX(eqn);
             this.i += Functions.power(x, eqnX[1]) * eqnX[0] * Functions.power(y, eqnX[2]);
+            double i2= eqnX[0] * Functions.power(z, eqnX[3]) * Functions.power(x, eqnX[1]);
             eqnY = PartialDiff.dY(eqn);
             this.j += eqnY[0] * Functions.power(y, eqnY[2]) * Functions.power(x, eqnY[1]);
+            double j2=eqnY[0] * Functions.power(y, eqnY[2]) * Functions.power(x, eqnY[1]);
         }
         else if(s.equals("yz"))
         {
@@ -56,12 +58,15 @@ public class Divergence {
         }
         else if(s.equals("zx"))
         {
-            eqn[1]=power1;
-            eqn[3]=power2;
+            eqn[1]=power2;
+            eqn[3]=power1;
             eqnZ = PartialDiff.dZ(eqn);
+            double k1= Functions.power(z, eqnZ[3]) * eqnZ[0] * Functions.power(x, eqnZ[1]);
             this.k += Functions.power(z, eqnZ[3]) * eqnZ[0] * Functions.power(x, eqnZ[1]);
             eqnX = PartialDiff.dX(eqn);
+            double i1= eqnX[0] * Functions.power(z, eqnX[3]) * Functions.power(x, eqnX[1]);
             this.i += eqnX[0] * Functions.power(z, eqnX[3]) * Functions.power(x, eqnX[1]);
+
         }
     }
 
@@ -105,64 +110,64 @@ public class Divergence {
             choice = sc.nextInt();
 
             switch (choice) {
-            case 1:
-                System.out.println("Enter Coefficient: ");
-                coefficient = sc.nextInt();
-                System.out.println("Enter Power of X: ");
-                power1 = sc.nextInt();
-                OneVariable('x',coefficient,power1);
-                break;
-            case 2:
-                System.out.println("Enter Coefficient: ");
-                coefficient = sc.nextInt();
-                System.out.println("Enter Power of Y: ");
-                power2 = sc.nextInt();
-                OneVariable('y',coefficient,power2);
-                break;
-            case 3:
-                System.out.println("Enter Coefficient: ");
-                coefficient = sc.nextInt();
-                System.out.println("Enter Power of Z: ");
-                power3 = sc.nextInt();
-                OneVariable('z',coefficient,power3);
-                break;
-            case 4:
-                System.out.println("Enter Coefficient: ");
-                coefficient = sc.nextInt();
-                System.out.println("Enter Power of X: ");
-                power1 = sc.nextInt();
-                System.out.println("Enter Power of Y: ");
-                power2 = sc.nextInt();
-                TwoVariable("xy",coefficient,power1,power2);
-                break;
-            case 5:
-                System.out.println("Enter Coefficient: ");
-                coefficient = sc.nextInt();
-                System.out.println("Enter Power of Y: ");
-                power2 = sc.nextInt();
-                System.out.println("Enter Power of Z: ");
-                power3 = sc.nextInt();
-                TwoVariable("yz",coefficient,power2,power3);
-                break;
-            case 6:
-                System.out.println("Enter Coefficient: ");
-                coefficient = sc.nextInt();
-                System.out.println("Enter Power of Z: ");
-                power3 = sc.nextInt();
-                System.out.println("Enter Power of X: ");
-                power1 = sc.nextInt();
-                TwoVariable("zx",coefficient,power3,power1);
-                break;
-            case 7:
-                System.out.println("Enter Coefficient: ");
-                coefficient = sc.nextInt();
-                System.out.println("Enter Power of X: ");
-                power1 = sc.nextInt();
-                System.out.println("Enter Power of Y: ");
-                power2 = sc.nextInt();
-                System.out.println("Enter Power of Z: ");
-                power3 = sc.nextInt();
-                ThreeVariable(coefficient, power1, power2, power3);
+                case 1:
+                    System.out.println("Enter Coefficient: ");
+                    coefficient = sc.nextInt();
+                    System.out.println("Enter Power of X: ");
+                    power1 = sc.nextInt();
+                    OneVariable('x',coefficient,power1);
+                    break;
+                case 2:
+                    System.out.println("Enter Coefficient: ");
+                    coefficient = sc.nextInt();
+                    System.out.println("Enter Power of Y: ");
+                    power2 = sc.nextInt();
+                    OneVariable('y',coefficient,power2);
+                    break;
+                case 3:
+                    System.out.println("Enter Coefficient: ");
+                    coefficient = sc.nextInt();
+                    System.out.println("Enter Power of Z: ");
+                    power3 = sc.nextInt();
+                    OneVariable('z',coefficient,power3);
+                    break;
+                case 4:
+                    System.out.println("Enter Coefficient: ");
+                    coefficient = sc.nextInt();
+                    System.out.println("Enter Power of X: ");
+                    power1 = sc.nextInt();
+                    System.out.println("Enter Power of Y: ");
+                    power2 = sc.nextInt();
+                    TwoVariable("xy",coefficient,power1,power2);
+                    break;
+                case 5:
+                    System.out.println("Enter Coefficient: ");
+                    coefficient = sc.nextInt();
+                    System.out.println("Enter Power of Y: ");
+                    power2 = sc.nextInt();
+                    System.out.println("Enter Power of Z: ");
+                    power3 = sc.nextInt();
+                    TwoVariable("yz",coefficient,power2,power3);
+                    break;
+                case 6:
+                    System.out.println("Enter Coefficient: ");
+                    coefficient = sc.nextInt();
+                    System.out.println("Enter Power of Z: ");
+                    power3 = sc.nextInt();
+                    System.out.println("Enter Power of X: ");
+                    power1 = sc.nextInt();
+                    TwoVariable("zx",coefficient,power3,power1);
+                    break;
+                case 7:
+                    System.out.println("Enter Coefficient: ");
+                    coefficient = sc.nextInt();
+                    System.out.println("Enter Power of X: ");
+                    power1 = sc.nextInt();
+                    System.out.println("Enter Power of Y: ");
+                    power2 = sc.nextInt();
+                    System.out.println("Enter Power of Z: ");
+                    power3 = sc.nextInt();
+                    ThreeVariable(coefficient, power1, power2, power3);
             }
 //            System.out.println(this.i);
 //            System.out.println(this.j);

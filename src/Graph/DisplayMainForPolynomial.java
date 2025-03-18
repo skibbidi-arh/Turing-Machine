@@ -4,7 +4,7 @@ import Graph.Polynomial_Graph;
 
 import java.util.Scanner;
 public class DisplayMainForPolynomial {
-    public void PolynomialOption() {
+    public void graphDisplay() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter the number of polynomials to plot (1 or 2): ");

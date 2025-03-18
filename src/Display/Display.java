@@ -1,7 +1,10 @@
 package Display;
 
+import EquationClasses.BrentsMethod;
 import EquationClasses.Matrix;
 import EquationClasses.TrigonoValueError;
+import Graph.DisplayMainForLinear;
+import Graph.DisplayMainForPolynomial;
 
 import java.util.Scanner;
 
@@ -15,6 +18,7 @@ public class Display {
         System.out.println("1. Solve Equation:");
         System.out.println("2. Play A Game:");
         System.out.println("3. Take a quiz:");
+        System.out.println("4. Graph: ");
         System.out.println("4. Exit");
         System.out.println("Give input: ");
         int choice = in.nextInt();
@@ -42,7 +46,11 @@ public class Display {
                 polynomial.displayPolynomial();
             }
             else if(choice2 == 3) {
-
+                System.out.println("Input equation:");
+                System.out.println("Equation should be like in a for f(x)=0 but you dont have to write the part (=0), just input f(x)");
+                String s= in.next();
+                BrentsMethod br= new BrentsMethod(s);
+                br.answerPrint();
             }
             else if(choice2 == 4) {
                 MatrixDisplay matrixdisplay = new MatrixDisplay();
@@ -58,6 +66,20 @@ public class Display {
         else if (choice == 3) {
             QuizDisplay quiz = new QuizDisplay();
             quiz.display();
+        }
+        else if (choice == 4)
+        {
+            System.out.println("1. Show Linear Graph: ");
+            System.out.println("2. Show Polynomial Graph: ");
+            int choice2 = in.nextInt();
+            if(choice2 == 1) {
+                DisplayMainForLinear ln= new DisplayMainForLinear();
+                ln.graphDisplay();
+            }
+            else if(choice2 == 2) {
+                DisplayMainForPolynomial ln= new DisplayMainForPolynomial();
+                ln.graphDisplay();
+            }
         }
     }
 }
