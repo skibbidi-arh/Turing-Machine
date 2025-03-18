@@ -4,6 +4,7 @@ import Graph.Polynomial_Graph;
 
 import java.util.Scanner;
 public class DisplayMainForPolynomial {
+    public DisplayMainForPolynomial() {}
     public void graphDisplay() {
         Scanner scanner = new Scanner(System.in);
 
