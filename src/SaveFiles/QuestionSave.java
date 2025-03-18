@@ -10,7 +10,7 @@ public  void save(String name,int number, String topic,String quizContent){
     qr.WriteQuizQuestions(quizContent,num);
   //  qr.readQuiz(num);
     StoreData std = new StoreData();
-    std.Store(number,topic,name,number);
+    std.Store(number,topic,name,num);
 
 }
 

@@ -3,10 +3,12 @@ package Display;
 import EquationClasses.Matrix;
 import EquationClasses.TrigonoValueError;
 import Interactive.*;
+import SaveFiles.QuestionSave;
 
 import java.util.Scanner;
 
 public class QuizDisplay {
+    QuestionSave qs=new QuestionSave();
 
     public QuizDisplay() {
     }
@@ -20,7 +22,11 @@ public class QuizDisplay {
 
         switch(choice) {
             case 1:
+                System.out.println("Enter your name");
+                sc.nextLine();
+                String name = sc.nextLine();
                 String TotalData = "";
+                String topic = "Linear Algebra";
                 for (int i = 0; i < 3; i++) {
                     PrintToFile pf = new PrintToFile();
                     LinearQuestion lq = new LinearQuestion(i + 1, pf);
@@ -32,7 +38,9 @@ public class QuizDisplay {
                 ResultMatcher rm = ResultMatcher.getMatcher();
                 System.out.println(rm.getMarks());
                 PrintToFile pf = new PrintToFile();
-                pf.writeStringToFile(TotalData, "D:/New folder/Turing-Machine/src/Interactive/Data.txt");
+                qs.save(name,rm.getMarks(),topic,TotalData);
+
+               // pf.writeStringToFile(TotalData, "D:/New folder/Turing-Machine/src/Interactive/Data.txt");
                 break;
             case 2:
                 String TotalData_3 = "";
