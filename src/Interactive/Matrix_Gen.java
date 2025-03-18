@@ -44,7 +44,7 @@ public class Matrix_Gen {
         }
 
         for (int i = 0; i < var_num; i++) {
-            x = rand.nextInt(var_num*10);
+            x = rand.nextInt(1,var_num*10);
             y=rand.nextInt(var_num);
             if(y%2==1)
             {
@@ -54,7 +54,7 @@ public class Matrix_Gen {
         }
         Matrix matrix1 = new Matrix(answer_matrix);
         Matrix matrix2 = new Matrix(variable_matrix);
-        StrassenMultiply str= new StrassenMultiply(matrix1, matrix2);
+        StrassenMultiply str= new StrassenMultiply(matrix2, matrix1);
         value_matrix = str.Mul();
     }
 
