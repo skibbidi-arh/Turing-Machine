@@ -6,6 +6,7 @@ import EquationClasses.DurandKerner;
 import java.util.Random;
 
 public class PolyNomialQuestion {
+    int point =0;
         int question;
         Random rand = new Random();
         Complex[] root;
@@ -26,5 +27,9 @@ public class PolyNomialQuestion {
             pf.Question = gen.getEntirePolyNomial(question);
             pf.Answer = gen.rootsToString();
             rm.Polynomialcheker(roots,question);
+            point = point+ rm.getMarks();
+        }
+       public int getpoints(){
+            return point;
         }
 }

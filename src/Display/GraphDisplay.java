@@ -1,7 +1,8 @@
 package Display;
+import Graph.*;
 
 import EquationClasses.TrigonoValueError;
-import Graph.DisplayMainForLinear;
+//import Graph.DisplayMainForLinear;
 import Graph.DisplayMainForPolynomial;
 import Graph.TrigonometricGraph;
 

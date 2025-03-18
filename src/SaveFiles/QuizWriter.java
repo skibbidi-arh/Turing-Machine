@@ -27,8 +27,6 @@ public class QuizWriter {
         } catch (IOException e) {
             System.err.println("An error occurred while writing to the file.");
             e.printStackTrace();
-        } finally {
-            scanner.close();
         }
     }
 

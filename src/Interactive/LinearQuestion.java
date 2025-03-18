@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class LinearQuestion {
+    int point=0;
     PrintToFile pf;
     Random rand = new Random();
     int question_no;
@@ -65,6 +66,9 @@ public class LinearQuestion {
                 pf.Answer=this.ConstructString(ld2.getlowMatrix().getMatrix());
                 break;
         }
+        this.point=rm.getMarks();
+
+
 
     }
     public void printLinearEquation(Matrix m,Matrix mVal) {
@@ -125,5 +129,10 @@ public class LinearQuestion {
             System.out.println();
         }
         return data;
+    }
+
+    public int getpoints()
+    {
+        return point;
     }
 }

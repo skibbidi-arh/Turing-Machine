@@ -1,8 +1,12 @@
 package SaveFiles;
+import java.util.*;
 
 public class QuestionSave {
+    Scanner sc = new Scanner(System.in);
 
-public  void save(String name,int number, String topic,String quizContent){
+public  void save(int number, String topic,String quizContent){
+    System.out.println("Enter name");
+    String name =sc.nextLine();
     QuizNumber quizNumber = new QuizNumber();
     quizNumber.quizNumberUpdate();
     int num = quizNumber.getLatestQuizNumber();

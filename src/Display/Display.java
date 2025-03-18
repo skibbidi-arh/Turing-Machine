@@ -56,6 +56,7 @@ public class Display {
         System.out.println("4. Exit");
         System.out.print("Give input: ");
        // in.nextLine();
+       // Scanner in2 = new Scanner(System.in);
         int choice = in.nextInt();
 
         if (choice == 4) {
