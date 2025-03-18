@@ -1,5 +1,6 @@
 package Display;
 
+import EquationClasses.BrentsMethod;
 import EquationClasses.Matrix;
 import EquationClasses.TrigonoValueError;
 
@@ -8,54 +9,93 @@ import java.util.Scanner;
 public class Display {
     public Display() {}
 
+    private void printBox(String message) {
+        // Calculate the width of the box based on the message length
+        int width = message.length() + 4;
+
+        // Print the top border with ASCII art pattern for a high-tech feel
+        System.out.println("╔" + "═".repeat(width - 2) + "╗");
+
+        // Print the message with borders on the sides, making it stand out
+        System.out.println("   " + message + " ");
+
+        // Print the bottom border with the same pattern
+        System.out.println("╚" + "═".repeat(width - 2) + "╝");
+    }
+
+    private void printLargeBox(String message) {
+        // For larger boxes, we'll increase the padding
+        int width = message.length() + 6;
+
+        // Print the large top border
+        System.out.println("╔" + "═".repeat(width - 2) + "╗");
+
+        // Print the message in the center with extra padding
+        System.out.println("   " + message + " ");
+
+        // Print the large bottom border
+        System.out.println("╚" + "═".repeat(width - 2) + "╝");
+    }
+
+    private void printTitle() {
+        // Title Banner
+        System.out.println("╔════════════════════════════════════════════════════════╗");
+        System.out.println("║              WELCOME TO THE TURING MACHINE             ║");
+        System.out.println("╚════════════════════════════════════════════════════════╝");
+    }
+
     public void display() throws TrigonoValueError {
         Scanner in = new Scanner(System.in);
 
-        System.out.println("What Do You Want To Do?");
+        printTitle();
+
+        printBox("What Do You Want To Do?");
         System.out.println("1. Solve Equation:");
         System.out.println("2. Play A Game:");
         System.out.println("3. Take a quiz:");
         System.out.println("4. Exit");
-        System.out.println("Give input: ");
+        System.out.print("Give input: ");
         int choice = in.nextInt();
-        if(choice == 4) {
-            System.out.println("The End");
-            return ;
+
+        if (choice == 4) {
+            printBox("The End");
+            return;
         }
+
         if (choice == 1) {
-            System.out.println("Solving Equation...................................");
-            System.out.println("What type of Equation Do you want to Solve? ");
-            System.out.println("1.Linear Equation: ");
-            System.out.println("2.Polynomial Equation: ");
-            System.out.println("3.Mixed Equation: ");
-            System.out.println("4.Matrix Solution: ");
-            System.out.println("5.Vector Solution: ");
-            System.out.println("6.Exit Program");
-            System.out.println("Give input: ");
+            printBox("Solving Equation...................................");
+            printLargeBox("What type of Equation Do you want to Solve?");
+            System.out.println("1. Linear Equation: ");
+            System.out.println("2. Polynomial Equation: ");
+            System.out.println("3. Mixed Equation: ");
+            System.out.println("4. Matrix Solution: ");
+            System.out.println("5. Vector Solution: ");
+            System.out.println("6. Exit Program");
+            System.out.print("Give input: ");
             int choice2 = in.nextInt();
-            if(choice2 == 1) {
+
+            if (choice2 == 1) {
                 LinearDisplay linear = new LinearDisplay();
                 linear.linearDisplay();
-            }
-            else if(choice2 == 2) {
+            } else if (choice2 == 2) {
                 PolynomialDisplay polynomial = new PolynomialDisplay();
                 polynomial.displayPolynomial();
-            }
-            else if(choice2 == 3) {
-
-            }
-            else if(choice2 == 4) {
+            } else if (choice2 == 3) {
+                printLargeBox("Input your mixed equation in form of f(x)=0");
+                printBox("Only input f(x), you must not print = 0 part");
+                String s = in.next();
+                BrentsMethod br = new BrentsMethod(s);
+                br.answerPrint();
+            } else if (choice2 == 4) {
                 MatrixDisplay matrixdisplay = new MatrixDisplay();
                 matrixdisplay.display();
-            }
-            else if(choice2 == 5) {
+            } else if (choice2 == 5) {
                 VectorDIsplay vector = new VectorDIsplay();
                 vector.display();
             }
-        }
-        else if (choice == 2) {
-        }
-        else if (choice == 3) {
+        } else if (choice == 2) {
+            // Code for playing a game can be added here
+        } else if (choice == 3) {
             QuizDisplay quiz = new QuizDisplay();
             quiz.display();
         }
