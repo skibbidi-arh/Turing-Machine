@@ -3,6 +3,8 @@ package EquationClasses;
 public class LUdecompose {
     private double[][] lower;
     private double[][] upper;
+    Matrix upperMatrix;
+    Matrix lowerMatrix;
     private int size;
 
     public LUdecompose(Matrix matrix) {
@@ -11,6 +13,8 @@ public class LUdecompose {
         this.lower = new double[size][size];
         this.upper = new double[size][size];
         decompose(original);
+        this.upperMatrix = new Matrix(this.upper);
+        this.lowerMatrix = new Matrix(this.lower);
     }
 
     private void decompose(double[][] matrix) {
@@ -53,5 +57,18 @@ public class LUdecompose {
     public void printUpper() {
         System.out.println("Upper Matrix:");
         new Matrix(upper).printMatrix();
+    }
+
+    public double[][] getLower() {
+        return lower;
+    }
+    public double[][] getUpper() {
+        return upper;
+    }
+    public Matrix getupMatrix() {
+        return upperMatrix;
+    }
+    public Matrix getlowMatrix() {
+        return lowerMatrix;
     }
 }
