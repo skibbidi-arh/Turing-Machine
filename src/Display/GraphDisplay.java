@@ -1,5 +1,6 @@
 package Display;
 
+import EquationClasses.TrigonoValueError;
 import Graph.DisplayMainForLinear;
 import Graph.DisplayMainForPolynomial;
 import Graph.TrigonometricGraph;
@@ -8,7 +9,7 @@ public class GraphDisplay {
     public GraphDisplay() {
 
     }
-    public void display(int option){
+    public void display(int option) throws TrigonoValueError {
             switch (option) {
                 case 1:
                     DisplayMainForLinear dl = new DisplayMainForLinear();
@@ -23,6 +24,10 @@ public class GraphDisplay {
                     TrigonometricGraph tg = new TrigonometricGraph();
                     tg.draw();
                     break;
+                    case 4:
+                        Display display = new Display();
+                        display.display();
             }
+            return;
     }
 }

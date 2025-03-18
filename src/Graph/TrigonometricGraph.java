@@ -79,7 +79,7 @@ public class TrigonometricGraph {
             }
             plotGraph(equation);
         }
-        scanner.close();
+       // scanner.close();
     }
 }
 

@@ -55,6 +55,7 @@ public class Display {
         System.out.println("3. Take a quiz:");
         System.out.println("4. Exit");
         System.out.print("Give input: ");
+       // in.nextLine();
         int choice = in.nextInt();
 
         if (choice == 4) {
@@ -93,16 +94,20 @@ public class Display {
                 VectorDIsplay vector = new VectorDIsplay();
                 vector.display();
             }
+            display();
         } else if (choice == 2) {
             System.out.println("1:Linear Graph");
             System.out.println("2:Polynomial Graph");
             System.out.println("3:Trigonometric Graph");
+            System.out.println("4: Return");
             int option = in.nextInt();
             GraphDisplay gd = new GraphDisplay();
             gd.display(option);
+            display();
         } else if (choice == 3) {
             QuizDisplay quiz = new QuizDisplay();
             quiz.display();
+            display();
         }
     }
 }
