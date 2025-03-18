@@ -3,6 +3,7 @@ package Graph;
 import java.util.Scanner;
 
 public class DisplayMainForLinear {
+    public DisplayMainForLinear() {}
     public void graphDisplay() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter 1 for one equation or 2 for two equations: ");
