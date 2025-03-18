@@ -51,7 +51,7 @@ public class Display {
 
         printBox("What Do You Want To Do?");
         System.out.println("1. Solve Equation:");
-        System.out.println("2. Play A Game:");
+        System.out.println("2. Show Graph:");
         System.out.println("3. Take a quiz:");
         System.out.println("4. Exit");
         System.out.print("Give input: ");
@@ -94,7 +94,12 @@ public class Display {
                 vector.display();
             }
         } else if (choice == 2) {
-            // Code for playing a game can be added here
+            System.out.println("1:Linear Graph");
+            System.out.println("2:Polynomial Graph");
+            System.out.println("3:Trigonometric Graph");
+            int option = in.nextInt();
+            GraphDisplay gd = new GraphDisplay();
+            gd.display(option);
         } else if (choice == 3) {
             QuizDisplay quiz = new QuizDisplay();
             quiz.display();
