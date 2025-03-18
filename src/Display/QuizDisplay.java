@@ -114,7 +114,8 @@ public class QuizDisplay {
             System.out.println("Remaining Time: " + (remainingTime / 60) + " min " + (remainingTime % 60) + " sec");
             totalData.append(pf.getData()).append("\n");
         }
-        saveResults(totalData.toString());
+       // saveResults(totalData.toString());
+
     }
 
     private void saveResults(String data) {
