@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BrentsMethod {
 
-    private double tol= 1e-6;
+    private double tol= 1e-7;
     private double interval= 0.1;
     private double min= -10;
     private double max= 10;

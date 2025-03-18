@@ -7,8 +7,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class VectorGen {
-    public double[] A=new double[3];
+    public double[] A = new double[3];
     public Random rand = new Random();
+
     public Vector1 genVector() {
         Scanner sc = new Scanner(System.in);
         A[0] = rand.nextInt(10);
@@ -20,3 +21,22 @@ public class VectorGen {
         return v;
     }
 }
+//
+//public void printPolynomial() {
+//    int size = roots.length;
+//    for(int i=size;i>=1;i--) {
+//        if(i==1){
+//            if(coefficients[i]>=0){System.out.print(coefficients[i]+"x");}
+//            else{System.out.print(coefficients[i]+"x");}
+//
+//        }
+//        else{
+//            if(coefficients[i]>0){System.out.print("+"+coefficients[i]+"x^"+i+" ");}
+//            else{
+//                System.out.print(coefficients[i]+"x^"+i);
+//            }
+//        }
+//    }
+//    if(coefficients[0]>0){ System.out.print("+"+coefficients[coefficients.length-1]+" = 0");}
+//    else{System.out.print(coefficients[coefficients.length-1]+" = 0");}
+//}
