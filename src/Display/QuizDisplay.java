@@ -22,7 +22,7 @@ public class QuizDisplay {
         switch(choice) {
             case 1:
 
-                for(int i=0;i<3;i++)
+                for(int i=0;i<15;i++)
                 {
                     LinearQuestion lq = new LinearQuestion();
                     lq.generateLinearQuestion();
@@ -32,7 +32,7 @@ public class QuizDisplay {
                 break;
             case 3:
 
-                for(int i=0;i<3;i++)
+                for(int i=0;i<15;i++)
                 {
                     VectorQuestion vq = new VectorQuestion();
                     vq.GenerateOption();
