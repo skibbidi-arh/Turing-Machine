@@ -1,12 +1,1 @@
 
-Ahir,67,Linear Algebra,2025-03-17,67
-Ahir,42,Linear Algebra,2025-03-17,42
-Chishti,75,Polynomial,2025-03-17,75
-Ahir,89,Polynomial,2025-03-17,89
-Chishti,33,Linear Algebra,2025-03-17,33
-Ahir,56,Linear Algebra,2025-03-17,56
-Chishti,92,Polynomial,2025-03-17,92
-Ahir,68,Polynomial,2025-03-17,68
-Chishti,47,Linear Algebra,2025-03-17,47
-Ahir,81,Linear Algebra,2025-03-17,81
-Chishti,59,Polynomial,2025-03-17,59
