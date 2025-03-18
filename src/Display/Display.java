@@ -73,8 +73,8 @@ public class Display {
             System.out.println("2. Show Polynomial Graph: ");
             int choice2 = in.nextInt();
             if(choice2 == 1) {
-                DisplayMainForLinear ln= new DisplayMainForLinear();
-                ln.graphDisplay();
+//                DisplayMainForLinear ln= new DisplayMainForLinear();
+//                ln.graphDisplay();
             }
             else if(choice2 == 2) {
                 DisplayMainForPolynomial ln= new DisplayMainForPolynomial();
