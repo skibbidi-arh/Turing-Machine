@@ -1,6 +1,7 @@
 package EquationClasses;
 
-public class FofX {
+public class
+FofX {
     private int[][] a= new int[38][75];
     public FofX() {
     }
