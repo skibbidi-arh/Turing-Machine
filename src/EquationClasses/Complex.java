@@ -1,8 +1,8 @@
 package EquationClasses;
 
 public class Complex {
-    double real;
-    double imag;
+    public double real;
+   public  double imag;
 
     public Complex(double real, double imag) {
         this.real = real;
