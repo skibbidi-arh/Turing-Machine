@@ -28,7 +28,8 @@ public class QuizDisplay {
         System.out.println("3. Vector");
         System.out.println("4. Show history");
         System.out.println("5. Show leaderboard");
-        System.out.println("6. return");
+        System.out.println("6. Get previous quiz contents ");
+        System.out.println("7. Exit");
         int choice = sc.nextInt();
 
         // Start 20-minute timer
@@ -50,11 +51,17 @@ public class QuizDisplay {
                     case 5:
                         showLeaderboard();
                         break;
+            case 6:
+                getQuizContect();
+                break;
+            case 7:
+                break;
 
             default:
                 System.out.println("Invalid choice. Please select a valid option.");
+                break;
         }
-        display();
+        //display();
     }
 
     private void startTimer() {
@@ -140,5 +147,12 @@ public class QuizDisplay {
         System.out.println("Enter name");
         String name = sc.nextLine();
         std.searchRecords(name);
+    }
+    void getQuizContect(){
+        sc.nextLine();
+        QuizWriter qr = new QuizWriter();
+        System.out.println("Enter quiz number");
+        int q= sc.nextInt();
+        qr.readQuiz(q);
     }
 }

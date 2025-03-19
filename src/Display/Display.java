@@ -1,8 +1,6 @@
 package Display;
 
-import EquationClasses.BrentsMethod;
-import EquationClasses.Matrix;
-import EquationClasses.TrigonoValueError;
+import EquationClasses.*;
 
 import java.util.Scanner;
 
@@ -53,13 +51,14 @@ public class Display {
         System.out.println("1. Solve Equation:");
         System.out.println("2. Show Graph:");
         System.out.println("3. Take a quiz:");
-        System.out.println("4. Exit");
+        System.out.println("4. Get logarithmic/Trigonometric values ");
+        System.out.println("5. Exit");
         System.out.print("Give input: ");
        // in.nextLine();
        // Scanner in2 = new Scanner(System.in);
         int choice = in.nextInt();
 
-        if (choice == 4) {
+        if (choice == 5) {
             printBox("The End");
             return;
         }
@@ -72,7 +71,9 @@ public class Display {
             System.out.println("3. Mixed Equation: ");
             System.out.println("4. Matrix Solution: ");
             System.out.println("5. Vector Solution: ");
-            System.out.println("6. Exit Program");
+            System.out.println("6. Quadratic trigonometric equation: ");
+            System.out.println("7. Exit Program");
+
             System.out.print("Give input: ");
             int choice2 = in.nextInt();
 
@@ -94,6 +95,10 @@ public class Display {
             } else if (choice2 == 5) {
                 VectorDIsplay vector = new VectorDIsplay();
                 vector.display();
+            } else if (choice2 == 6) {
+                QuadraticTrigonometricSolver qs = new QuadraticTrigonometricSolver();
+                qs.solve();
+
             }
             display();
         } else if (choice == 2) {
@@ -109,6 +114,12 @@ public class Display {
             QuizDisplay quiz = new QuizDisplay();
             quiz.display();
             display();
+        } else if (choice == 4) {
+            SolutionClass sc = new SolutionClass();
+            sc.print();
+            display();
         }
     }
+
+
 }
